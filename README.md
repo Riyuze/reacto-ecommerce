@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# E-Commerce ReactJS
+https://riyuze.github.io/ecommerce-react/
+
+This project was made purely using frontend.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
