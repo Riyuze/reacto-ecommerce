@@ -1,8 +1,6 @@
-import axios from 'axios';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Cart from './Cart';
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
