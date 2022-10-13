@@ -30,33 +30,30 @@ class Cart extends React.Component {
     render() {
         return (
             <div className="Cart">
-                <div>
-                    <button onClick={this.return}>Return to Homepage</button>
-                </div>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <form class="form-inline my-2 my-lg-0 input-group m-2">
+                            <button class="btn btn-primary my-2 my-sm-0 form-control" onClick={this.return}>Return to Homepage</button>
+                            </form>
+                        </div>
+                    </nav>
                 <h1>Your Cart</h1>
-                <ul style={{ listStyle: "none" }}>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
                     {
                         this.props.cart.map((item) => {
-                            return <li key={item.item.id}>
-                                <h2>
-                                    {item.item.name}
-                                </h2>
-                                <h3>
-                                    {item.item.detail}
-                                </h3>
-                                <p>
-                                    Rp. {item.item.price},-
-                                </p>
-                                <p>
-                                    Amount ({item.amount})
-                                </p>
-                                <img alt="" src={item.item.image}></img>
-                                <p>Total = {item.item.price * item.amount}</p>
-                            </li>
+                            return <div class="card">
+                            <img src={item.item.image} class="card-img-top rounded mx-auto d-block" alt="" style={{ maxWidth: "400px", height: "250px"}}></img>
+                            <div class="card-body">
+                                <h5 class="card-title">{item.item.name}</h5>
+                                <p class="card-text">{item.item.detail}</p>
+                                <p class="card-text">Rp. {item.item.price},-</p>
+                                <p>Total = Rp. {item.item.price * item.amount},-</p>
+                            </div>
+                        </div>
                         })
                     }
-                </ul>
-                <h2>Total All Items = {this.state.total}</h2>
+                    </div>
+                <h2>Total All Items = Rp. {this.state.total},-</h2>
             </div>
         );
     }

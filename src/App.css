@@ -36,11 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.box {
-  background-color: rgb(243, 125, 16);
-}
-
-.bg-image {
-  background-image: url("../public/login-bg.jpg");
-}

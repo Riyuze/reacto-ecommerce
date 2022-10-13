@@ -36,7 +36,7 @@ class Login extends React.Component {
                         <div class="card bg-dark text-white" style={{borderRadius: "1rem;"}}>
                         <div class="card-body p-5 text-center box">
 
-                            <div class="mt-md-4 pb-5">
+                            <div class="mt-md-4">
 
                             <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                             <p class="text-white-50 mb-5">Please enter your username and password!</p>
