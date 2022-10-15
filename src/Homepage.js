@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 import Cart from './Cart';
 
 class Homepage extends React.Component {

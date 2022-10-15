@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 import React from 'react';
 
 class Register extends React.Component {
@@ -54,7 +53,7 @@ class Register extends React.Component {
                             </div>
 
                             <div>
-                            <p class="mb-0">Already have an account? <a href="#!" class="text-white-50 fw-bold" onClick={this.redirectLogin}>Login</a>
+                            <p class="mb-0">Already have an account? <button class="btn btn-link p-0 mb-2" onClick={this.redirectLogin}>Login</button>
                             </p>
                             </div>
 

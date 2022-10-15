@@ -1,7 +1,5 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "bootstrap/dist/js/bootstrap";
-import './App.css';
 
 
 class Login extends React.Component {
@@ -56,14 +54,15 @@ class Login extends React.Component {
                             <button class="btn btn-outline-light btn-lg px-5" type="submit" onClick={this.onLogin}>Login</button>
 
                             </div>
+
                             {
                             this.state.errorMessage !== "" ?
                                 <label class="text-danger">{this.state.errorMessage}</label> :
                             null
-                             }
+                            }
 
                             <div>
-                            <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold" onClick={this.redirectRegister}>Register</a>
+                            <p class="mb-0">Don't have an account? <button class="btn btn-link p-0 mb-2" onClick={this.redirectRegister}>Register</button>
                             </p>
                             </div>
 
