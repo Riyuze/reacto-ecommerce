@@ -1,9 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "bootstrap/dist/js/bootstrap";
 import React from 'react';
 import Login from "./Login.js"
 import Homepage from "./Homepage.js"
 import Register from "./Register.js"
+
 
 class App extends React.Component {
 

@@ -1,5 +1,12 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 
 
 class Login extends React.Component {
@@ -28,51 +35,55 @@ class Login extends React.Component {
 
     render() {
         return (
-            <section class="vh-100 src=" src="login-bg.jpg">
-                <div className="Login" class="container py-5 h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div class="card bg-dark text-white" style={{borderRadius: "1rem"}}>
-                        <div class="card-body p-5 text-center box">
+            <div className="Login gradient-custom">
+                <Container>
+                    <Row className="vh-100 d-flex justify-content-center align-items-center">
+                    <Col md={8} lg={6} xs={12}>
+                        <Card className="shadow bg-dark text-white">
+                        <Card.Body className="text-center">
+                            <div className="mb-3 mt-md-4">
+                                <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+                                <p className=" mb-5">Please enter your username and password!</p>
+                                    <div className="mb-3">
 
-                            <div class="mt-md-4">
+                                        <Form>
+                                            <Form.Group className="mb-3">
+                                                <Form.Label>Username</Form.Label>
+                                                <Form.Control placeholder="Enter Username" value={this.state.username} onChange={event => this.setState({ username: event.target.value })}/>
+                                            </Form.Group>
 
-                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                            <p class="text-white-50 mb-5">Please enter your username and password!</p>
+                                            <Form.Group className="mb-3">
+                                                <Form.Label>Password</Form.Label>
+                                                <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={event => this.setState({ password: event.target.value })}/>
+                                            </Form.Group>
 
-                            <div class="form-outline form-white mb-4">
-                                <input value={this.state.username}
-                                    onChange={event => this.setState({ username: event.target.value })} class="form-control form-control-lg" />
-                                <label class="form-label">Username</label>
+                                            {
+                                                this.state.errorMessage !== "" ?
+                                                    <Alert variant="danger">{this.state.errorMessage}</Alert> : null
+                                            }
+
+                                            <div className="d-grid">
+                                                <Button variant="primary" onClick={this.onLogin}>
+                                                Login
+                                                </Button>
+                                            </div>    
+
+                                        </Form>
+
+                                        <div className="mt-3">
+                                            <p className="mb-0 text-center">
+                                                <span className="d-inline-block align-middle">Don't have an account?</span>
+                                                <Button variant="link" onClick={this.redirectRegister}>Register</Button>
+                                            </p>
+                                        </div>
+                                    </div>
                             </div>
-
-                            <div class="form-outline form-white mb-4">
-                                <input type="password" value={this.state.password}
-                                    onChange={event => this.setState({ password: event.target.value })} class="form-control form-control-lg" />
-                                <label class="form-label">Password</label>
-                            </div>
-
-                            <button class="btn btn-outline-light btn-lg px-5" type="submit" onClick={this.onLogin}>Login</button>
-
-                            </div>
-
-                            {
-                            this.state.errorMessage !== "" ?
-                                <label class="text-danger">{this.state.errorMessage}</label> :
-                            null
-                            }
-
-                            <div>
-                            <p class="mb-0">Don't have an account? <button class="btn btn-link p-0 mb-2" onClick={this.redirectRegister}>Register</button>
-                            </p>
-                            </div>
-
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </section>
+                        </Card.Body>
+                        </Card>
+                    </Col>
+                    </Row>
+                </Container>
+            </div>
         );
     }
 }

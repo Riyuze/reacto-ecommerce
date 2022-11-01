@@ -1,36 +1,5 @@
-import React from 'react';
-
-
-class Register extends React.Component {
-
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-        username: "",
-        password: "",
-        errorMessage: "",
-    }
-  }
-
-  onRegister = () => {
-    if (this.props.users.find(user => (user.username === this.state.username))) {
-        this.setState({ errorMessage: "Username Already Exists!" });
-    }
-    else {
-        this.props.addUser({username: this.state.username, password: this.state.password});
-        this.props.changePage("Login");
-    }
-  }
-
-  redirectLogin = () => {
-    this.props.changePage("Login");
-}
-
-  render() {
-    return (
-            <section class="vh-100 bg-white">
-                <div className="Register" class="container py-5 h-100">
+<section class="vh-100 src=" src="login-bg.jpg">
+                <div className="Login" class="container py-5 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                         <div class="card bg-dark text-white" style={{borderRadius: "1rem"}}>
@@ -38,7 +7,7 @@ class Register extends React.Component {
 
                             <div class="mt-md-4">
 
-                            <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                             <p class="text-white-50 mb-5">Please enter your username and password!</p>
 
                             <div class="form-outline form-white mb-4">
@@ -53,7 +22,7 @@ class Register extends React.Component {
                                 <label class="form-label">Password</label>
                             </div>
 
-                            <button class="btn btn-outline-light btn-lg px-5" type="submit" onClick={this.onRegister}>Register</button>
+                            <button class="btn btn-outline-light btn-lg px-5" type="submit" onClick={this.onLogin}>Login</button>
 
                             </div>
 
@@ -64,8 +33,7 @@ class Register extends React.Component {
                             }
 
                             <div>
-                            <p class="mb-0">Already have an account? <button class="btn btn-link p-0 mb-2" onClick={this.redirectLogin}>Login</button>
-                            </p>
+                            <p class="mb-0">Don't have an account? <button class="btn btn-link p-0 mb-2" onClick={this.redirectRegister}>Register</button></p>
                             </div>
 
                         </div>
@@ -74,9 +42,3 @@ class Register extends React.Component {
                     </div>
                 </div>
             </section>
-    )
-  }
-
-}
-
-export default Register;
