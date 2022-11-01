@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 
 class Login extends React.Component {
@@ -48,13 +49,15 @@ class Login extends React.Component {
 
                                         <Form>
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Username</Form.Label>
-                                                <Form.Control placeholder="Enter Username" value={this.state.username} onChange={event => this.setState({ username: event.target.value })}/>
-                                            </Form.Group>
+                                                <FloatingLabel label="Username" className="mb-3 text-secondary">
+                                                    <Form.Control placeholder="Enter Username" value={this.state.username} onChange={event => this.setState({ username: event.target.value })}/>
+                                                </FloatingLabel>
+                                            </Form.Group>             
 
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Password</Form.Label>
-                                                <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={event => this.setState({ password: event.target.value })}/>
+                                                <FloatingLabel label="Password" className="mb-3 text-secondary">
+                                                    <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={event => this.setState({ password: event.target.value })}/>
+                                                </FloatingLabel>
                                             </Form.Group>
 
                                             {
