@@ -18,6 +18,7 @@ class Register extends React.Component {
     this.state = {
         username: "",
         password: "",
+        confirmPassword: "",
         errorMessage: "",
     }
   }
@@ -59,6 +60,12 @@ class Register extends React.Component {
                                         <Form.Group className="mb-3">
                                             <FloatingLabel label="Password" className="mb-3 text-secondary">
                                                 <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={event => this.setState({ password: event.target.value })}/>
+                                            </FloatingLabel>
+                                        </Form.Group>
+
+                                        <Form.Group className="mb-3">
+                                            <FloatingLabel label="Confirm Password" className="mb-3 text-secondary">
+                                                <Form.Control type="password" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={event => this.setState({ confirmPassword: event.target.value })}/>
                                             </FloatingLabel>
                                         </Form.Group>
 
