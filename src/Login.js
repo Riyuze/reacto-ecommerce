@@ -63,8 +63,8 @@ class Login extends React.Component {
                                             }
 
                                             <div className="d-grid">
-                                                <Button variant="primary" onClick={this.onLogin}>
-                                                Login
+                                                <Button variant="outline-light" onClick={this.onLogin} size="lg">
+                                                    Login
                                                 </Button>
                                             </div>    
 
