@@ -34,7 +34,7 @@ class App extends React.Component {
           this.state.page === "Login" ?
           <Login changePage = {this.changePage} users = {this.state.users}/> :
           this.state.page === "Register" ?
-          <Register changePage = {this.changePage} users= {this.state.users} addUser = {this.addUser}/> :
+          <Register changePage = {this.changePage} users = {this.state.users} addUser = {this.addUser}/> :
           <Homepage changePage = {this.changePage} /> 
         }
       </div>
