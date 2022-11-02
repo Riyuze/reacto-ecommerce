@@ -27,6 +27,9 @@ class Register extends React.Component {
     if (this.props.users.find(user => (user.username === this.state.username))) {
         this.setState({ errorMessage: "Username Already Exists!" });
     }
+    else if (this.state.password !== this.state.confirmPassword) {
+        this.setState({ errorMessage: "Passwords Do Not Match!" });
+    }
     else {
         this.props.addUser({username: this.state.username, password: this.state.password});
         this.props.changePage("Login");
@@ -35,7 +38,7 @@ class Register extends React.Component {
 
   redirectLogin = () => {
     this.props.changePage("Login");
-}
+  }
 
   render() {
     return (
