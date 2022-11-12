@@ -76,7 +76,7 @@ class Login extends React.Component {
                                         <div className="mt-3">
                                             <p className="mb-0 text-center">
                                                 <span className="d-inline-block align-middle">Don't have an account?</span>
-                                                <Button variant="link" onClick={this.redirectRegister}>Register</Button>
+                                                <Button variant="link ps-1 pt-1" onClick={this.redirectRegister}>Register</Button>
                                             </p>
                                         </div>
                                     </div>

@@ -88,7 +88,7 @@ class Register extends React.Component {
                                     <div className="mt-3">
                                         <p className="mb-0 text-center">
                                             <span className="d-inline-block align-middle">Already have an account?</span>
-                                            <Button variant="link" onClick={this.redirectLogin}>Login</Button>
+                                            <Button variant="link ps-1 pt-1" onClick={this.redirectLogin}>Login</Button>
                                         </p>
                                     </div>
                                 </div>

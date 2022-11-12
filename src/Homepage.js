@@ -61,7 +61,11 @@ class Homepage extends React.Component {
 
     render() {
         return (
-            
+            this.state.page === "Cart" ?
+            <Cart changePage={this.changePage} cart={this.state.cart} /> :
+            <div className="Homepage">
+                
+            </div>
         );
     }
 }
