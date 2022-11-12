@@ -70,7 +70,7 @@ class Homepage extends React.Component {
             this.state.page === "Cart" ?
             <Cart changePage={this.changePage} cart={this.state.cart} /> :
             <div className="Homepage">
-                <Navbar bg="light" expand="lg">
+                <Navbar bg="dark" variant="dark" expand="lg">
                     <Container fluid>
                         <Navbar.Brand>Reacto E-Commerce</Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -97,6 +97,7 @@ class Homepage extends React.Component {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
+
                 
             </div>
         );
