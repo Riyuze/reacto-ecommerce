@@ -8,6 +8,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import CardGroup from 'react-bootstrap/CardGroup';
 
 
 
@@ -100,43 +103,41 @@ class Homepage extends React.Component {
                     </Container>
                 </Navbar>
 
+                <Row>
                 {
                     this.state.item === "" ?
                         this.state.items.map((item) => {
                             return (
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src={item.image} />
-                                        <Card.Body>
-                                            <Card.Title>{item.name}</Card.Title>
-                                            <Card.Text>{item.detail}</Card.Text>
-                                        </Card.Body>
-                                        <ListGroup className="list-group-flush">
-                                            <ListGroup.Item>Rp. {item.price}</ListGroup.Item>
-                                        </ListGroup>
-                                        <Card.Body>
-                                            <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
-                                        </Card.Body>
-                                </Card>
+                                <Col>
+                                    <Card style={{ width: '18rem' }} bg="dark" text="white">
+                                        <Card.Img variant="top" src={item.image} />
+                                            <Card.Body>
+                                                <Card.Title>{item.name}</Card.Title>
+                                                <Card.Text>{item.detail}</Card.Text>
+                                                <Card.Text>Rp. {item.price}</Card.Text>
+                                                <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
+                                            </Card.Body>
+                                    </Card>
+                                </Col>
                             )
                         }):
                         this.state.items_filtered.map((item) => {
                             return (
-                                <Card style={{ width: '18rem' }} className="text-center">
-                                    <Card.Img variant="top" src={item.image} />
-                                        <Card.Body>
-                                            <Card.Title>{item.name}</Card.Title>
-                                            <Card.Text>{item.detail}</Card.Text>
-                                        </Card.Body>
-                                        <ListGroup className="list-group-flush">
-                                            <ListGroup.Item>Rp. {item.price}</ListGroup.Item>
-                                        </ListGroup>
-                                        <Card.Body>
-                                            <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
-                                        </Card.Body>
-                                </Card>
+                                <Col>
+                                    <Card style={{ width: '18rem' }} bg="dark" text="white">
+                                        <Card.Img variant="top" src={item.image} />
+                                            <Card.Body>
+                                                <Card.Title>{item.name}</Card.Title>
+                                                <Card.Text>{item.detail}</Card.Text>
+                                                <Card.Text>Rp. {item.price}</Card.Text>
+                                                <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
+                                            </Card.Body>
+                                    </Card>
+                                </Col>
                             )
                         })
                 }
+                </Row>
             </div>
         );
     }
