@@ -6,7 +6,9 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 
 class Homepage extends React.Component {
@@ -98,7 +100,43 @@ class Homepage extends React.Component {
                     </Container>
                 </Navbar>
 
-                
+                {
+                    this.state.item === "" ?
+                        this.state.items.map((item) => {
+                            return (
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Img variant="top" src={item.image} />
+                                        <Card.Body>
+                                            <Card.Title>{item.name}</Card.Title>
+                                            <Card.Text>{item.detail}</Card.Text>
+                                        </Card.Body>
+                                        <ListGroup className="list-group-flush">
+                                            <ListGroup.Item>Rp. {item.price}</ListGroup.Item>
+                                        </ListGroup>
+                                        <Card.Body>
+                                            <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
+                                        </Card.Body>
+                                </Card>
+                            )
+                        }):
+                        this.state.items_filtered.map((item) => {
+                            return (
+                                <Card style={{ width: '18rem' }} className="text-center">
+                                    <Card.Img variant="top" src={item.image} />
+                                        <Card.Body>
+                                            <Card.Title>{item.name}</Card.Title>
+                                            <Card.Text>{item.detail}</Card.Text>
+                                        </Card.Body>
+                                        <ListGroup className="list-group-flush">
+                                            <ListGroup.Item>Rp. {item.price}</ListGroup.Item>
+                                        </ListGroup>
+                                        <Card.Body>
+                                            <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
+                                        </Card.Body>
+                                </Card>
+                            )
+                        })
+                }
             </div>
         );
     }
