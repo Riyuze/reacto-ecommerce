@@ -7,10 +7,8 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import CardGroup from 'react-bootstrap/CardGroup';
 
 
 
@@ -110,7 +108,7 @@ class Homepage extends React.Component {
                             return (
                                 <Col>
                                     <Card style={{ width: '18rem' }} bg="dark" text="white">
-                                        <Card.Img variant="top" src={item.image} />
+                                        <Card.Img variant="top" src={item.image} style={{ maxWidth: "500px", height: "200px"}}/>
                                             <Card.Body>
                                                 <Card.Title>{item.name}</Card.Title>
                                                 <Card.Text>{item.detail}</Card.Text>
@@ -124,7 +122,7 @@ class Homepage extends React.Component {
                         this.state.items_filtered.map((item) => {
                             return (
                                 <Col>
-                                    <Card style={{ width: '18rem' }} bg="dark" text="white">
+                                    <Card style={{ width: "18rem" }} bg="dark" text="white">
                                         <Card.Img variant="top" src={item.image} />
                                             <Card.Body>
                                                 <Card.Title>{item.name}</Card.Title>
