@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navbar, Button } from 'react-bootstrap';
 
 
 class Cart extends React.Component {
@@ -30,9 +29,13 @@ class Cart extends React.Component {
     render() {
         return (
             <div className="Cart">
-                <Navbar bg="dark" variant="dark" expand="lg">
-                    <Button variant="primary" onClick={this.return}>Return to Homepage</Button>
-                </Navbar>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <form class="form-inline my-2 my-lg-0 input-group m-2">
+                            <button class="btn btn-primary my-2 my-sm-0 form-control" onClick={this.return}>Return to Homepage</button>
+                            </form>
+                        </div>
+                    </nav>
                 <h1>Your Cart</h1>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     {
