@@ -79,7 +79,7 @@ class Homepage extends React.Component {
             <div className="Homepage">
                 <Navbar bg="dark" variant="dark" expand="lg">
                     <Container fluid>
-                        <Navbar.Brand className="me-4">Reacto E-Commerce</Navbar.Brand>
+                        <Navbar.Brand className="me-4">Reacto</Navbar.Brand>
                             <Form className="d-flex w-100 ms-4">
                                 <Form.Control
                                 type="search"
@@ -99,7 +99,7 @@ class Homepage extends React.Component {
                             {
                                 this.props.is_logged_in === false ?
                                 <Button variant="warning" className="ms-1" onClick={this.login}>Login</Button> :
-                                <Button variant="warning" className="ms-1" onClick={this.logout}>Logout</Button>
+                                <Button variant="warning" className="ms-1" onClick={this.logout}>Logout</Button>                                
                             }
                     </Container>
                 </Navbar>
