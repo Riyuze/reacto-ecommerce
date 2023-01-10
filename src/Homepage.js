@@ -38,6 +38,11 @@ class Homepage extends React.Component {
 
     logout = () => {
         this.props.changePage("Login");
+        this.props.is_logged_in(false)
+    }
+
+    login = () => {
+        this.props.changePage("Login");
     }
 
     findItems = () => {
@@ -93,7 +98,7 @@ class Homepage extends React.Component {
                             </Button>
                             {
                                 this.props.is_logged_in === false ?
-                                <Button variant="warning" className="ms-1" onClick={this.logout}>Login</Button> :
+                                <Button variant="warning" className="ms-1" onClick={this.login}>Login</Button> :
                                 <Button variant="warning" className="ms-1" onClick={this.logout}>Logout</Button>
                             }
                     </Container>
