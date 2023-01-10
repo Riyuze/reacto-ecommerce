@@ -4,7 +4,6 @@ import Cart from './Cart';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -75,8 +74,8 @@ class Homepage extends React.Component {
             <div className="Homepage">
                 <Navbar bg="dark" variant="dark" expand="lg">
                     <Container fluid>
-                        <Navbar.Brand>Reacto E-Commerce</Navbar.Brand>
-                            <Form className="d-flex w-100">
+                        <Navbar.Brand className="me-4">Reacto E-Commerce</Navbar.Brand>
+                            <Form className="d-flex w-100 ms-4">
                                 <Form.Control
                                 type="search"
                                 placeholder="Search"
@@ -85,19 +84,14 @@ class Homepage extends React.Component {
                                 value={this.state.item}
                                 onChange={e => this.setState({ item: e.target.value, items_filtered: [] })} 
                                 />
-                                <Button variant="success" onClick={this.findItems}>Search</Button>
+                                <Button variant="success" className="me-4" onClick={this.findItems}>Search</Button>
                             </Form>
-                        <Nav
-                            className="my-lg-0"
-                            style={{ maxHeight: '100px' }}
-                        >
-                            <Button variant="info ms-2 me-1"onClick={this.cart}>
+                            <Button variant="info" className="ms-4 me-1" onClick={this.cart}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg>
                             </Button>
-                            <Button variant="warning ms-1" onClick={this.logout}>Logout</Button>
-                        </Nav>
+                            <Button variant="warning" className="ms-1" onClick={this.logout}>Logout</Button>
                     </Container>
                 </Navbar>
 
