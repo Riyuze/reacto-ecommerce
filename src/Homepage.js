@@ -76,28 +76,24 @@ class Homepage extends React.Component {
                 <Navbar bg="dark" variant="dark" expand="lg">
                     <Container fluid>
                         <Navbar.Brand>Reacto E-Commerce</Navbar.Brand>
-                        <Navbar.Toggle aria-controls="navbarScroll" />
-                        <Navbar.Collapse id="navbarScroll">
+                            <Form className="d-flex w-100">
+                                <Form.Control
+                                type="search"
+                                placeholder="Search"
+                                className="me-2"
+                                aria-label="Search"
+                                value={this.state.item}
+                                onChange={e => this.setState({ item: e.target.value, items_filtered: [] })} 
+                                />
+                                <Button variant="success" onClick={this.findItems}>Search</Button>
+                            </Form>
                         <Nav
-                            className="me-auto my-2 my-lg-0"
+                            className="my-lg-0"
                             style={{ maxHeight: '100px' }}
-                            navbarScroll
                         >
-                            <Button variant="info me-2" onClick={this.cart}>Cart</Button>
-                            <Button variant="warning ms-2" onClick={this.logout}>Logout</Button>
+                            <Button variant="info ms-2 me-1" onClick={this.cart}>Cart</Button>
+                            <Button variant="warning ms-1" onClick={this.logout}>Logout</Button>
                         </Nav>
-                        <Form className="d-flex">
-                            <Form.Control
-                            type="search"
-                            placeholder="Search"
-                            className="me-2"
-                            aria-label="Search"
-                            value={this.state.item}
-                            onChange={e => this.setState({ item: e.target.value, items_filtered: [] })} 
-                            />
-                            <Button variant="success" onClick={this.findItems}>Search</Button>
-                        </Form>
-                        </Navbar.Collapse>
                     </Container>
                 </Navbar>
 
