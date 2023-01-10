@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     
     this.state = {
-      page: "Login",
+      page: "Homepage",
       users: [{
         username: "",
         password: ""
