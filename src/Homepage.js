@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Carousel from 'react-bootstrap/Carousel';
 
 
 
@@ -76,8 +77,9 @@ class Homepage extends React.Component {
         return (
             this.state.page === "Cart" ?
             <Cart changePage={this.changePage} cart={this.state.cart} /> :
-            <div className="Homepage">
-                <Navbar bg="dark" variant="dark" expand="lg">
+            <div className="Homepage bg-dark">
+
+                <Navbar bg="black" variant="dark" expand="lg">
                     <Container fluid>
                         <Navbar.Brand className="me-4">Reacto</Navbar.Brand>
                             <Form className="d-flex w-100 ms-4">
@@ -92,17 +94,53 @@ class Homepage extends React.Component {
                                 <Button variant="success" className="me-4" onClick={this.findItems}>Search</Button>
                             </Form>
                             <Button variant="info" className="ms-4 me-1" onClick={this.cart}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg>
                             </Button>
                             {
                                 this.props.is_logged_in === false ?
-                                <Button variant="warning" className="ms-1" onClick={this.login}>Login</Button> :
-                                <Button variant="warning" className="ms-1" onClick={this.logout}>Logout</Button>                                
+                                <Button variant="danger" className="ms-1 text-white" onClick={this.login}>Login</Button> :
+                                <Button variant="danger" className="ms-1 text-white" onClick={this.logout}>Logout</Button>                                
                             }
                     </Container>
                 </Navbar>
+
+                <Carousel fade>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100 mx-auto"
+                            style={{ maxWidth: "800px", height: "400px"}}
+                            src=""
+                        />
+                        <Carousel.Caption>
+                            <h3>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100 mx-auto"
+                            style={{ maxWidth: "800px", height: "400px"}}
+                            src=""
+                        />
+                        <Carousel.Caption>
+                            <h3>Second slide label</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100 mx-auto"
+                            style={{ maxWidth: "800px", height: "400px"}}
+                            src=""
+                        />
+                        <Carousel.Caption>
+                            <h3>Third slide label</h3>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
 
                 <Row xs={1} sm={2} md={3} lg={4} className="g-4">
                 {
@@ -110,7 +148,7 @@ class Homepage extends React.Component {
                         this.state.items.map((item) => {
                             return (
                                 <Col>
-                                    <Card bg="dark" text="white" className="text-center h-100">
+                                    <Card bg="black" text="white" className="text-center h-100">
                                         <Card.Img variant="top" src={item.image} style={{ maxWidth: "500px", height: "200px"}}/>
                                             <Card.Body className="d-flex flex-column">
                                                 <Card.Title>{item.name}</Card.Title>
@@ -127,7 +165,7 @@ class Homepage extends React.Component {
                         this.state.items_filtered.map((item) => {
                             return (
                                 <Col>
-                                    <Card bg="dark" text="white" className="text-center h-100">
+                                    <Card bg="black" text="white" className="text-center h-100">
                                         <Card.Img variant="top" src={item.image} style={{ maxWidth: "500px", height: "200px"}}/>
                                             <Card.Body className="d-flex flex-column">
                                                 <Card.Title>{item.name}</Card.Title>
