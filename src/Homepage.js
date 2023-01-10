@@ -112,6 +112,7 @@ class Homepage extends React.Component {
                             className="d-block w-100 mx-auto"
                             style={{ maxWidth: "800px", height: "400px"}}
                             src=""
+                            alt="First"
                         />
                         <Carousel.Caption>
                             <h3>First slide label</h3>
@@ -123,6 +124,7 @@ class Homepage extends React.Component {
                             className="d-block w-100 mx-auto"
                             style={{ maxWidth: "800px", height: "400px"}}
                             src=""
+                            alt="Second"
                         />
                         <Carousel.Caption>
                             <h3>Second slide label</h3>
@@ -134,6 +136,7 @@ class Homepage extends React.Component {
                             className="d-block w-100 mx-auto"
                             style={{ maxWidth: "800px", height: "400px"}}
                             src=""
+                            alt="Third"
                         />
                         <Carousel.Caption>
                             <h3>Third slide label</h3>
@@ -144,6 +147,7 @@ class Homepage extends React.Component {
 
                 <Row xs={1} sm={2} md={3} lg={4} className="g-4">
                 {
+                    // eslint-disable-next-line
                     this.state.items_filtered == "" ?
                         this.state.items.map((item) => {
                             return (
