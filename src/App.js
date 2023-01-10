@@ -15,8 +15,8 @@ class App extends React.Component {
         username: "",
         password: ""
       }],
+      is_logged_in: false,
     }
-
   }
 
   changePage = (newPage) => {
@@ -27,15 +27,19 @@ class App extends React.Component {
     this.setState({users: this.state.users.concat(user)})
   }
 
+  changeLogin = (state) => {
+    this.setState({is_logged_in: state})
+  }
+
   render() {
     return (
       <div className= "App">
         {
           this.state.page === "Login" ?
-          <Login changePage = {this.changePage} users = {this.state.users}/> :
+          <Login changePage = {this.changePage} users = {this.state.users} changeLogin = {this.changeLogin}/> :
           this.state.page === "Register" ?
           <Register changePage = {this.changePage} users = {this.state.users} addUser = {this.addUser}/> :
-          <Homepage changePage = {this.changePage} /> 
+          <Homepage changePage = {this.changePage} is_logged_in = {this.state.is_logged_in}/> 
         }
       </div>
     )
