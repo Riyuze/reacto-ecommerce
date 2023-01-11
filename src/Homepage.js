@@ -40,7 +40,7 @@ class Homepage extends React.Component {
 
     logout = () => {
         this.props.changePage("Login");
-        this.props.is_logged_in(false)
+        this.props.is_logged_in(false);
     }
 
     login = () => {
