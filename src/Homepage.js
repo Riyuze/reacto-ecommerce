@@ -9,8 +9,8 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Carousel from 'react-bootstrap/Carousel';
+import InputGroup from 'react-bootstrap/InputGroup';
 import Swal from 'sweetalert2';
-import { ButtonGroup, InputGroup } from 'react-bootstrap';
 
 
 
@@ -98,9 +98,7 @@ class Homepage extends React.Component {
                             i.amount += amount
                             return i
                         }
-                        else {
-                            return i
-                        }
+                        return i                      
                     })
                 })
             }
@@ -210,7 +208,14 @@ class Homepage extends React.Component {
                                                             this.state.cart.find(cart => (cart.item === item)) ?                                                          
                                                                 <InputGroup className="justify-content-center ">
                                                                 <Button variant="primary">-</Button>
-                                                                    <InputGroup.Text>{}</InputGroup.Text>
+                                                                    <InputGroup.Text>
+                                                                    {this.state.cart.map((i) => {
+                                                                        if (i.item === item) {
+                                                                            return i.amount
+                                                                        }
+                                                                        return null
+                                                                    })}
+                                                                    </InputGroup.Text>
                                                                 <Button variant="primary">+</Button>
                                                                 </InputGroup> 
                                                                 : 
