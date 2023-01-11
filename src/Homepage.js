@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Carousel from 'react-bootstrap/Carousel';
 import Swal from 'sweetalert2';
+import { ButtonGroup, InputGroup } from 'react-bootstrap';
 
 
 
@@ -205,7 +206,16 @@ class Homepage extends React.Component {
                                                     <Card.Text>{item.detail}</Card.Text>
                                                     <div className="mt-auto d-flex flex-column">
                                                         <Card.Text>Rp. {item.price}</Card.Text>
-                                                        <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
+                                                        {
+                                                            (this.state.cart.find(cart => (cart.item === item))) ?                                                          
+                                                                <InputGroup className="justify-content-center ">
+                                                                <Button variant="primary">-</Button>
+                                                                    <InputGroup.Text>{}</InputGroup.Text>
+                                                                <Button variant="primary">+</Button>
+                                                                </InputGroup> 
+                                                                : 
+                                                            <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
+                                                        }                                                        
                                                     </div>
                                                 </Card.Body>
                                         </Card>                           
