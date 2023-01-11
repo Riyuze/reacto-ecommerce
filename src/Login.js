@@ -25,6 +25,7 @@ class Login extends React.Component {
         if (this.props.users.find(user => (user.username === this.state.username && user.password === this.state.password))) {
             this.props.changePage("Homepage");
             this.props.changeLogin(true);
+            this.props.setLoggedUser(this.state.username)
         } 
         else {
             this.setState({ errorMessage: "Invalid Login" });

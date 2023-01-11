@@ -16,6 +16,7 @@ class App extends React.Component {
         password: ""
       }],
       is_logged_in: false,
+      logged_in_user: "",
     }
   }
 
@@ -31,15 +32,19 @@ class App extends React.Component {
     this.setState({is_logged_in: state})
   }
 
+  setLoggedUser = (user) => {
+    this.setState({logged_in_user: user})
+  }
+
   render() {
     return (
       <div className= "App">
         {
           this.state.page === "Login" ?
-          <Login changePage = {this.changePage} users = {this.state.users} changeLogin = {this.changeLogin}/> :
+          <Login changePage = {this.changePage} users = {this.state.users} changeLogin = {this.changeLogin} setLoggedUser = {this.setLoggedUser}/> :
           this.state.page === "Register" ?
           <Register changePage = {this.changePage} users = {this.state.users} addUser = {this.addUser}/> :
-          <Homepage changePage = {this.changePage} is_logged_in = {this.state.is_logged_in}/> 
+          <Homepage changePage = {this.changePage} is_logged_in = {this.state.is_logged_in} logged_in_user = {this.state.logged_in_user}/> 
         }
       </div>
     )
