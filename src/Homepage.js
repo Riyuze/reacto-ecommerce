@@ -192,6 +192,15 @@ class Homepage extends React.Component {
                     }
                     </Row>
                 </div>
+
+                <footer className="mt-4 text-white">
+                    <div className="text-center">
+                        © 2022 Copyright&nbsp;
+                        <a href="https://www.github.com/Riyuze/">Riyuze</a>
+                    </div>
+
+                </footer>
+
             </div>
         );
     }
