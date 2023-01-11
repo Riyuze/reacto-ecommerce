@@ -61,7 +61,9 @@ class Homepage extends React.Component {
             icon: 'success',
             title: 'Item successfully added to cart',
             showConfirmButton: false,
-            timer: 1500
+            timer: 1500,
+            color: "#FFFFFF",
+            background: "#000000"
           })
     }
 
@@ -73,7 +75,9 @@ class Homepage extends React.Component {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Login'
+            confirmButtonText: 'Login',
+            color: "#FFFFFF",
+            background: "#000000"
           }).then((result) => {
             if (result.isConfirmed) {
               this.login();
