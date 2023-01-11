@@ -39,7 +39,7 @@ class Homepage extends React.Component {
     }
 
     logout = () => {
-        this.props.changePage("Login");
+        window.location.reload();
         this.props.is_logged_in(false);
     }
 
@@ -143,7 +143,7 @@ class Homepage extends React.Component {
                                 this.props.is_logged_in === false ?
                                 <Button variant="danger" className="ms-1 me-2 text-white" onClick={this.login}>Login</Button> :
                                 <div className="d-flex mx-auto">
-                                    <Button variant="primary" className="disabled ms-1 me-1">{this.props.logged_in_user}</Button>
+                                    <Button variant="outline-light" className="ms-1 me-1" disabled>{this.props.logged_in_user}</Button>
                                     <Button variant="danger" className="ms-1 me-2 text-white" onClick={this.logout}>Logout</Button>        
                                 </div>                       
                             }
