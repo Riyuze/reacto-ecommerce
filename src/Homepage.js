@@ -63,7 +63,7 @@ class Homepage extends React.Component {
             showConfirmButton: false,
             timer: 1500,
             color: "#FFFFFF",
-            background: "#000000"
+            background: "#000000",
           })
     }
 
@@ -141,7 +141,7 @@ class Homepage extends React.Component {
                             </Button>
                             {
                                 this.props.is_logged_in === false ?
-                                <Button variant="danger" className="ms-1 me-2 text-white" onClick={this.login}>Login</Button> :
+                                <Button variant="primary" className="ms-1 me-2 text-white" onClick={this.login}>Login</Button> :
                                 <div className="d-flex mx-auto">
                                     <Button variant="outline-light" className="ms-1 me-1" disabled>{this.props.logged_in_user}</Button>
                                     <Button variant="danger" className="ms-1 me-2 text-white" onClick={this.logout}>Logout</Button>        
