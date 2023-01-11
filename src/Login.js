@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Swal from 'sweetalert2';
 
 
 class Login extends React.Component {
@@ -23,6 +24,7 @@ class Login extends React.Component {
 
     onLogin = () => {
         if (this.props.users.find(user => (user.username === this.state.username && user.password === this.state.password))) {
+            this.successPopUp();
             this.props.changePage("Homepage");
             this.props.changeLogin(true);
             this.props.setLoggedUser(this.state.username)
@@ -35,6 +37,22 @@ class Login extends React.Component {
     redirectRegister = () => {
         this.props.changePage("Register");
     }
+
+    successPopUp = () => {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            background: "#000000",
+            color: "#FFFFFF",
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: `Signed in successfully as ${this.state.username}`
+          })
+      }
 
     render() {
         return (

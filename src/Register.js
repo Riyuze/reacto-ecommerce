@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Swal from 'sweetalert2';
 
 
 class Register extends React.Component {
@@ -32,12 +33,29 @@ class Register extends React.Component {
     }
     else {
         this.props.addUser({username: this.state.username, password: this.state.password});
+        this.successPopUp();
         this.props.changePage("Login");
     }
   }
 
   redirectLogin = () => {
     this.props.changePage("Login");
+  }
+
+  successPopUp = () => {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        background: "#000000",
+        color: "#FFFFFF",
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'Registered successfully'
+      })
   }
 
   render() {
