@@ -106,7 +106,7 @@ class Homepage extends React.Component {
                     </Container>
                 </Navbar>
 
-                <Carousel fade>
+                <Carousel fade className="mt-4 mb-4">
                     <Carousel.Item>
                         <img
                             className="d-block w-100 mx-auto"
@@ -146,6 +146,7 @@ class Homepage extends React.Component {
                 </Carousel>
 
                 <div className="me-4 ms-4 mt-4 mb-4">
+                    <h1 className="text-white">All Items</h1>
                     <Row sm={1} md={2} lg={3} className="g-4">
                     {
                         // eslint-disable-next-line
