@@ -207,7 +207,7 @@ class Homepage extends React.Component {
                                                     <div className="mt-auto d-flex flex-column">
                                                         <Card.Text>Rp. {item.price}</Card.Text>
                                                         {
-                                                            (this.state.cart.find(cart => (cart.item === item))) ?                                                          
+                                                            this.state.cart.find(cart => (cart.item === item)) ?                                                          
                                                                 <InputGroup className="justify-content-center ">
                                                                 <Button variant="primary">-</Button>
                                                                     <InputGroup.Text>{}</InputGroup.Text>
