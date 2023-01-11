@@ -81,7 +81,7 @@ class Homepage extends React.Component {
 
                 <Navbar bg="black" variant="dark" expand="lg">
                     <Container fluid>
-                        <Navbar.Brand className="me-4">Reacto</Navbar.Brand>
+                        <Navbar.Brand className="me-4 ms-2">Reacto</Navbar.Brand>
                             <Form className="d-flex w-100 ms-4">
                                 <Form.Control
                                 type="search"
@@ -100,8 +100,8 @@ class Homepage extends React.Component {
                             </Button>
                             {
                                 this.props.is_logged_in === false ?
-                                <Button variant="danger" className="ms-1 text-white" onClick={this.login}>Login</Button> :
-                                <Button variant="danger" className="ms-1 text-white" onClick={this.logout}>Logout</Button>                                
+                                <Button variant="danger" className="ms-1 me-2 text-white" onClick={this.login}>Login</Button> :
+                                <Button variant="danger" className="ms-1 me-2 text-white" onClick={this.logout}>Logout</Button>                                
                             }
                     </Container>
                 </Navbar>
@@ -147,7 +147,7 @@ class Homepage extends React.Component {
 
                 <div className="me-4 ms-4 mt-4 mb-4">
                     <h1 className="text-white">All Items</h1>
-                    <Row sm={1} md={2} lg={3} className="g-4">
+                    <Row xs={1} sm={1} md={2} lg={3} className="g-4">
                     {
                         // eslint-disable-next-line
                         this.state.items_filtered == "" ?
