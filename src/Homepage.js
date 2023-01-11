@@ -145,46 +145,48 @@ class Homepage extends React.Component {
                     </Carousel.Item>
                 </Carousel>
 
-                <Row xs={1} sm={2} md={3} lg={4} className="g-4">
-                {
-                    // eslint-disable-next-line
-                    this.state.items_filtered == "" ?
-                        this.state.items.map((item) => {
-                            return (
-                                <Col>
-                                    <Card bg="black" text="white" className="text-center h-100">
-                                        <Card.Img variant="top" src={item.image} style={{ maxWidth: "500px", height: "200px"}}/>
-                                            <Card.Body className="d-flex flex-column">
-                                                <Card.Title>{item.name}</Card.Title>
-                                                <Card.Text>{item.detail}</Card.Text>
-                                                <div className="mt-auto d-flex flex-column">
-                                                    <Card.Text>Rp. {item.price}</Card.Text>
-                                                    <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
-                                                </div>
-                                            </Card.Body>
-                                    </Card>                           
-                                </Col>
-                            )
-                        }):
-                        this.state.items_filtered.map((item) => {
-                            return (
-                                <Col>
-                                    <Card bg="black" text="white" className="text-center h-100">
-                                        <Card.Img variant="top" src={item.image} style={{ maxWidth: "500px", height: "200px"}}/>
-                                            <Card.Body className="d-flex flex-column">
-                                                <Card.Title>{item.name}</Card.Title>
-                                                <Card.Text>{item.detail}</Card.Text>
-                                                <div className="mt-auto d-flex flex-column">
-                                                    <Card.Text>Rp. {item.price}</Card.Text>
-                                                    <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
-                                                </div>
-                                            </Card.Body>
-                                    </Card>
-                                </Col>
-                            )
-                        })
-                }
-                </Row>
+                <div className="me-4 ms-4 mt-4 mb-4">
+                    <Row sm={1} md={2} lg={3} className="g-4">
+                    {
+                        // eslint-disable-next-line
+                        this.state.items_filtered == "" ?
+                            this.state.items.map((item) => {
+                                return (
+                                    <Col>
+                                        <Card bg="black" text="white" className="text-center h-100">
+                                            <Card.Img variant="top" src={item.image} style={{ maxWidth: "500px", height: "200px"}}/>
+                                                <Card.Body className="d-flex flex-column">
+                                                    <Card.Title>{item.name}</Card.Title>
+                                                    <Card.Text>{item.detail}</Card.Text>
+                                                    <div className="mt-auto d-flex flex-column">
+                                                        <Card.Text>Rp. {item.price}</Card.Text>
+                                                        <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
+                                                    </div>
+                                                </Card.Body>
+                                        </Card>                           
+                                    </Col>
+                                )
+                            }):
+                            this.state.items_filtered.map((item) => {
+                                return (
+                                    <Col>
+                                        <Card bg="black" text="white" className="text-center h-100">
+                                            <Card.Img variant="top" src={item.image} style={{ maxWidth: "500px", height: "200px"}}/>
+                                                <Card.Body className="d-flex flex-column">
+                                                    <Card.Title>{item.name}</Card.Title>
+                                                    <Card.Text>{item.detail}</Card.Text>
+                                                    <div className="mt-auto d-flex flex-column">
+                                                        <Card.Text>Rp. {item.price}</Card.Text>
+                                                        <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
+                                                    </div>
+                                                </Card.Body>
+                                        </Card>
+                                    </Col>
+                                )
+                            })
+                    }
+                    </Row>
+                </div>
             </div>
         );
     }
