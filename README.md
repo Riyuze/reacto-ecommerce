@@ -1,7 +1,7 @@
-# E-Commerce ReactJS
+# Reacto E-Commerce
 https://riyuze.github.io/ecommerce-react/
 
-This project was made purely using frontend.
+A very simple e-commerce website made using ReactJS, this project was made purely using frontend.
 
 ## Getting Started with Create React App
 
