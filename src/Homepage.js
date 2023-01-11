@@ -98,7 +98,7 @@ class Homepage extends React.Component {
                             i.amount += amount
                             return i
                         }
-                        return i                      
+                        return null                      
                     })
                 })
             }
