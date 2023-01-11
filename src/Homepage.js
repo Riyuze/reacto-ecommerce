@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Carousel from 'react-bootstrap/Carousel';
+import Swal from 'sweetalert2';
 
 
 
@@ -54,22 +55,54 @@ class Homepage extends React.Component {
         this.changePage("Cart");
     }
 
+    cartPopUp = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Item successfully added to cart',
+            showConfirmButton: false,
+            timer: 1500
+          })
+    }
+
+    loginPopUp = () => {
+        Swal.fire({
+            title: 'Not logged in!',
+            text: "You need to log in to add this item to cart!",
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Login'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.login();
+            }
+          })
+    }
+
     addToCart = (item, amount) => {
-        if (this.state.cart.find(cart => (cart.item === item))) {
-            this.setState({
-                cart: this.state.cart.map((i) => {
-                    if (i.item === item) {
-                        i.amount += amount
-                        return i
-                    }
-                    else {
-                        return i
-                    }
-                })
-            })
+        if (this.props.is_logged_in === false) {
+            this.loginPopUp();
         }
         else {
-            this.setState({ cart: this.state.cart.concat({ item, amount }) })
+            if (this.state.cart.find(cart => (cart.item === item))) {
+                this.setState({
+                    cart: this.state.cart.map((i) => {
+                        if (i.item === item) {
+                            i.amount += amount
+                            return i
+                        }
+                        else {
+                            return i
+                        }
+                    })
+                })
+            }
+            else {
+                this.setState({ cart: this.state.cart.concat({ item, amount }) })
+            }
+            this.cartPopUp();
         }
     }
 
