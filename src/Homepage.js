@@ -198,7 +198,7 @@ class Homepage extends React.Component {
                                 return (
                                     <Col>
                                         <Card bg="black" text="white" className="text-center h-100">
-                                            <Card.Img variant="top" src={item.image} style={{ maxWidth: "500px", height: "200px"}}/>
+                                            <Card.Img variant="top" src={item.image} style={{ height: "250px"}}/>
                                                 <Card.Body className="d-flex flex-column">
                                                     <Card.Title>{item.name}</Card.Title>
                                                     <Card.Text>{item.detail}</Card.Text>
