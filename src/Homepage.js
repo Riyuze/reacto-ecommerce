@@ -117,6 +117,7 @@ class Homepage extends React.Component {
             }
             return null
         })
+        this.setState({ cart: this.state.cart })
     }
 
     render() {
