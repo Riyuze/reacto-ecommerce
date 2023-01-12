@@ -17,8 +17,6 @@ class Cart extends React.Component {
 
     findTotal = () => {
         this.setState({total: this.props.cart.reduce((accumulator, item) => {
-            console.log(accumulator)
-            console.log(item)
             return accumulator + (item.item.price * item.amount)
         }, 0)})
     }
