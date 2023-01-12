@@ -109,6 +109,16 @@ class Homepage extends React.Component {
         }
     }
 
+    addAmount = (item) => {
+        this.state.cart.map((i) => {
+            if (i.item === item) {
+                i.amount += 1
+                return i
+            }
+            return null
+        })
+    }
+
     render() {
         return (
             this.state.page === "Cart" ?
@@ -216,7 +226,7 @@ class Homepage extends React.Component {
                                                                         return null
                                                                     })}
                                                                     </InputGroup.Text>
-                                                                <Button variant="primary">+</Button>
+                                                                <Button variant="primary" onClick={() => { this.addAmount(item) }}>+</Button>
                                                                 </InputGroup> 
                                                                 : 
                                                             <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
