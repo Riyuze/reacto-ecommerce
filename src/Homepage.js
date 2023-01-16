@@ -120,6 +120,17 @@ class Homepage extends React.Component {
         this.setState({ cart: this.state.cart })
     }
 
+    substractAmount = (item) => {
+        this.state.cart.map((i) => {
+            if (i.item === item) {
+                i.amount -= 1
+                return i
+            }
+            return null
+        })
+        this.setState({ cart: this.state.cart })
+    }
+
     render() {
         return (
             this.state.page === "Cart" ?
@@ -218,7 +229,7 @@ class Homepage extends React.Component {
                                                         {
                                                             this.state.cart.find(cart => (cart.item === item)) ?                                                          
                                                                 <InputGroup className="justify-content-center ">
-                                                                <Button variant="primary">-</Button>
+                                                                <Button variant="primary" onClick={() => { this.substractAmount(item) }}>-</Button>
                                                                     <InputGroup.Text>
                                                                     {this.state.cart.map((i) => {
                                                                         if (i.item === item) {
