@@ -131,7 +131,9 @@ class Homepage extends React.Component {
                         showCancelButton: true,
                         confirmButtonColor: '#d33',
                         cancelButtonColor: '#3085d6',
-                        confirmButtonText: 'Yes, remove it!'
+                        confirmButtonText: 'Yes, remove it!',
+                        color: "#FFFFFF",
+                        background: "#000000"
                       }).then((result) => {
                         if (result.isConfirmed) {
                           Swal.fire(
