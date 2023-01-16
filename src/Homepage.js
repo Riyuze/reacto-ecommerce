@@ -40,8 +40,35 @@ class Homepage extends React.Component {
     }
 
     logout = () => {
-        window.location.reload();
-        this.props.is_logged_in(false);
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            background: "#000000",
+            color: "#FFFFFF",
+          })
+        
+        Swal.fire({
+            title: 'Logging Out?',
+            text: 'Do you want to log out?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Log Out!',
+            color: '#FFFFFF',
+            background: '#000000'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                Toast.fire({
+                    icon: 'success',
+                    title: `Signed out successfully`
+                    })
+                this.props.changeLogin(false);
+                }
+            }
+          )
     }
 
     login = () => {
