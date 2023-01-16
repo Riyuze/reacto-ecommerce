@@ -132,15 +132,18 @@ class Homepage extends React.Component {
                         confirmButtonColor: '#d33',
                         cancelButtonColor: '#3085d6',
                         confirmButtonText: 'Yes, remove it!',
-                        color: "#FFFFFF",
-                        background: "#000000"
+                        color: '#FFFFFF',
+                        background: '#000000'
                       }).then((result) => {
                         if (result.isConfirmed) {
-                          Swal.fire(
-                            'Removed!',
-                            'This item has been removed.',
-                            'success'
-                          )
+                          Swal.fire({
+                            title: 'Removed!',
+                            text: 'This item has been removed.',
+                            icon: 'success',
+                            color: '#FFFFFF',
+                            background: '#000000',
+                            confirmButtonColor: '#3085d6'
+                            })
                           this.state.cart.pop(i);
                           this.setState({ cart: this.state.cart });
                         }
