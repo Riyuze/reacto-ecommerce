@@ -89,7 +89,7 @@ class Homepage extends React.Component {
             icon: 'success',
             title: 'Item successfully added to cart',
             showConfirmButton: false,
-            timer: 1500,
+            timer: 1000,
             color: "#FFFFFF",
             background: "#000000",
           })
@@ -169,7 +169,8 @@ class Homepage extends React.Component {
                             icon: 'success',
                             color: '#FFFFFF',
                             background: '#000000',
-                            confirmButtonColor: '#3085d6'
+                            showConfirmButton: false,
+                            timer: 1000,
                             })
                           this.state.cart.pop(i);
                           this.setState({ cart: this.state.cart });
