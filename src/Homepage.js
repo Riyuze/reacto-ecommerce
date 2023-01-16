@@ -103,7 +103,7 @@ class Homepage extends React.Component {
                 })
             }
             else {
-                this.setState({ cart: this.state.cart.concat({ item, amount }) })
+                this.setState({ cart: this.state.cart.concat({ item, amount }) });
             }
             this.cartPopUp();
         }
@@ -117,18 +117,41 @@ class Homepage extends React.Component {
             }
             return null
         })
-        this.setState({ cart: this.state.cart })
+        this.setState({ cart: this.state.cart });
     }
 
     substractAmount = (item) => {
         this.state.cart.map((i) => {
             if (i.item === item) {
-                i.amount -= 1
+                if (i.amount === 1) {
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: 'Do you want to remove this item from cart?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Yes, remove it!'
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          Swal.fire(
+                            'Removed!',
+                            'This item has been removed.',
+                            'success'
+                          )
+                          this.state.cart.pop(i);
+                          this.setState({ cart: this.state.cart });
+                        }
+                      })
+                }
+                else {
+                    i.amount -= 1
+                }  
                 return i
             }
             return null
         })
-        this.setState({ cart: this.state.cart })
+        this.setState({ cart: this.state.cart });
     }
 
     render() {
