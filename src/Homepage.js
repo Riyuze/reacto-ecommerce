@@ -278,16 +278,32 @@ class Homepage extends React.Component {
                                 return (
                                     <Col>
                                         <Card bg="black" text="white" className="text-center h-100">
-                                            <Card.Img variant="top" src={item.image} style={{ maxWidth: "500px", height: "200px"}}/>
+                                            <Card.Img variant="top" src={item.image} style={{ height: "250px"}}/>
                                                 <Card.Body className="d-flex flex-column">
                                                     <Card.Title>{item.name}</Card.Title>
                                                     <Card.Text>{item.detail}</Card.Text>
                                                     <div className="mt-auto d-flex flex-column">
                                                         <Card.Text>Rp. {item.price}</Card.Text>
-                                                        <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
+                                                        {
+                                                            this.state.cart.find(cart => (cart.item === item)) ?                                                          
+                                                                <InputGroup className="justify-content-center ">
+                                                                <Button variant="primary" onClick={() => { this.substractAmount(item) }}>-</Button>
+                                                                    <InputGroup.Text>
+                                                                    {this.state.cart.map((i) => {
+                                                                        if (i.item === item) {
+                                                                            return i.amount
+                                                                        }
+                                                                        return null
+                                                                    })}
+                                                                    </InputGroup.Text>
+                                                                <Button variant="primary" onClick={() => { this.addAmount(item) }}>+</Button>
+                                                                </InputGroup> 
+                                                                : 
+                                                            <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
+                                                        }                                                        
                                                     </div>
                                                 </Card.Body>
-                                        </Card>
+                                        </Card>                           
                                     </Col>
                                 )
                             })
