@@ -176,7 +176,7 @@ class Homepage extends React.Component {
                                 className="me-2"
                                 aria-label="Search"
                                 value={this.state.item}
-                                onChange={e => this.setState({ item: e.target.value, items_filtered: [] })} 
+                                onChange={e => this.setState({ item: e.target.value, items_filtered: [] })}
                                 />
                                 <Button variant="success" className="me-4" onClick={this.findItems}>Search</Button>
                             </Form>
