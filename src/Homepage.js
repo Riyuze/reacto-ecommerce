@@ -81,7 +81,12 @@ class Homepage extends React.Component {
     }
 
     cart = () => {
-        this.changePage("Cart");
+        if (this.props.is_logged_in === false) {
+            this.loginPopUp("cart");
+        }
+        else {
+            this.changePage("Cart");
+        }
     }
 
     cartPopUp = () => {
@@ -96,10 +101,17 @@ class Homepage extends React.Component {
           })
     }
 
-    loginPopUp = () => {
+    loginPopUp = (type) => {
+        let text = ""
+        if (type === "item" ) {
+            text = "You need to log in to add this item to cart!"
+        }
+        else {
+            text = "You need to log in to open cart!"
+        }
         Swal.fire({
             title: 'Not logged in!',
-            text: "You need to log in to add this item to cart!",
+            text: `${text}`,
             icon: 'error',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -116,7 +128,7 @@ class Homepage extends React.Component {
 
     addToCart = (item, amount) => {
         if (this.props.is_logged_in === false) {
-            this.loginPopUp();
+            this.loginPopUp("item");
         }
         else {
             if (this.state.cart.find(cart => (cart.item === item))) {
