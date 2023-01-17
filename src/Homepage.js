@@ -172,7 +172,10 @@ class Homepage extends React.Component {
                             showConfirmButton: false,
                             timer: 1000,
                             })
-                          this.state.cart.pop(i);
+                          const index = this.state.cart.indexOf(i);
+                          if (index > -1 ) {
+                            this.state.cart.splice(index, 1);
+                          }
                           this.setState({ cart: this.state.cart });
                         }
                       })
