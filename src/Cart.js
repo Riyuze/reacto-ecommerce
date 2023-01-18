@@ -35,7 +35,7 @@ class Cart extends React.Component {
                                                 <div className="text-muted" style={{ fontSize: ".75rem" }}>Rp. {item.item.price},-</div>
                                                 </div>
                                                 <div style={{ fontSize: ".90rem" }}>
-                                                    Rp. {item.item.price * item.amount},-
+                                                    Total = Rp. {item.item.price * item.amount},-
                                                 </div>
                                             </div>
                                             <Button variant="outline-danger" size="sm">&times;</Button> 
@@ -43,7 +43,7 @@ class Cart extends React.Component {
                             })
                         }
                         </Offcanvas.Body>
-                    <h2>Total All Items = Rp. {this.props.total},-</h2>
+                    <h4>Total = Rp. {this.props.total},-</h4>
                 </Offcanvas>
             </div>
         );
