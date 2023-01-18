@@ -1,5 +1,7 @@
 import React from 'react';
+import Stack from 'react-bootstrap/Stack';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import Button from 'react-bootstrap/Button';
 
 
 class Cart extends React.Component {
@@ -15,22 +17,29 @@ class Cart extends React.Component {
     render() {
         return (
             <div className="Cart">
-                <Offcanvas show={this.props.show} onHide={this.props.cartClose} placement="end">
+                <Offcanvas show={this.props.show} onHide={this.props.cartClose} placement="end" className="bg-black text-white">
                     <Offcanvas.Header closeButton>
-                        <Offcanvas.Title>Your Cart</Offcanvas.Title>
+                        <Offcanvas.Title>Cart</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         {
                             this.props.cart.map((item) => {
-                                return <div class="card">
-                                <img src={item.item.image} class="card-img-top rounded mx-auto d-block" alt="" style={{ maxWidth: "400px", height: "250px"}}></img>
-                                <div class="card-body">
-                                    <h5 class="card-title">{item.item.name}</h5>
-                                    <p class="card-text">{item.item.detail}</p>
-                                    <p class="card-text">Rp. {item.item.price},-</p>
-                                    <p>Total = Rp. {item.item.price * item.amount},-</p>
-                                </div>
-                            </div>
+                                return <Stack direction="horizontal" gap={2} className="d-flex align-items-center mb-4">
+                                            <img src={item.item.image} style={{ width: "200px", height: "75px", objectFit: "fill", maxWidth: "125px"}} className="rounded"></img>
+                                            <div className="me-auto">
+                                                <div>
+                                                {item.item.name}{" "}
+                                                {item.amount > 1 && (
+                                                    <span className="text-muted" style={{ fontSize: ".65rem" }}>x{item.amount}</span>
+                                                )}
+                                                <div className="text-muted" style={{ fontSize: ".75rem" }}>Rp. {item.item.price},-</div>
+                                                </div>
+                                                <div style={{ fontSize: ".90rem" }}>
+                                                    Rp. {item.item.price * item.amount},-
+                                                </div>
+                                            </div>
+                                            <Button variant="outline-danger" size="sm">&times;</Button> 
+                                    </Stack>
                             })
                         }
                         </Offcanvas.Body>
