@@ -2,6 +2,7 @@ import React from 'react';
 import Stack from 'react-bootstrap/Stack';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
 
 
 class Cart extends React.Component {
@@ -18,7 +19,7 @@ class Cart extends React.Component {
         return (
             <div className="Cart">
                 <Offcanvas show={this.props.show} onHide={this.props.cartClose} placement="end" className="bg-black text-white">
-                    <Offcanvas.Header closeButton>
+                    <Offcanvas.Header closeButton closeVariant="white">
                         <Offcanvas.Title>Cart</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
@@ -30,12 +31,12 @@ class Cart extends React.Component {
                                                 <div>
                                                 {item.item.name}{" "}
                                                 {item.amount > 1 && (
-                                                    <span className="text-muted" style={{ fontSize: ".65rem" }}>x{item.amount}</span>
+                                                    <span className="text-muted" style={{ fontSize: ".65rem" }}>&times;{item.amount}</span>
                                                 )}
                                                 <div className="text-muted" style={{ fontSize: ".75rem" }}>Rp. {item.item.price},-</div>
                                                 </div>
                                                 <div style={{ fontSize: ".90rem" }}>
-                                                    Total = Rp. {item.item.price * item.amount},-
+                                                    <Badge bg="primary">Rp. {item.item.price * item.amount},-</Badge>
                                                 </div>
                                             </div>
                                             <Button variant="outline-danger" size="sm">&times;</Button> 
