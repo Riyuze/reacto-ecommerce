@@ -20,7 +20,7 @@ class Cart extends React.Component {
             <div className="Cart">
                 <Offcanvas show={this.props.show} onHide={this.props.cartClose} placement="end" className="bg-black text-white">
                     <Offcanvas.Header closeButton closeVariant="white">
-                        <Offcanvas.Title>Cart</Offcanvas.Title>
+                        <Offcanvas.Title className="fw-bold fs-5">Cart</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         {
@@ -36,7 +36,7 @@ class Cart extends React.Component {
                                                 <div className="text-muted" style={{ fontSize: ".75rem" }}>Rp. {item.item.price},-</div>
                                                 </div>
                                                 <div style={{ fontSize: ".90rem" }}>
-                                                    <Badge bg="primary">Rp. {item.item.price * item.amount},-</Badge>
+                                                    <Badge bg="dark">Rp. {item.item.price * item.amount},-</Badge>
                                                 </div>
                                             </div>
                                             <Button variant="outline-danger" size="sm">&times;</Button> 
@@ -44,7 +44,10 @@ class Cart extends React.Component {
                             })
                         }
                         </Offcanvas.Body>
-                    <h4>Total = Rp. {this.props.total},-</h4>
+                    <div className="mx-auto fw-bold fs-5 align-items-center mb-4">
+                        Total &nbsp;
+                        <Badge bg="primary" className="fw-bold fs-5">Rp. {this.props.total},-</Badge>
+                    </div>
                 </Offcanvas>
             </div>
         );
