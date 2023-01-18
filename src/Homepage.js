@@ -24,6 +24,8 @@ class Homepage extends React.Component {
             items: [],
             items_filtered: [],
             cart: [],
+            show: false,
+            total: 0,
         }
     }
 
@@ -80,13 +82,24 @@ class Homepage extends React.Component {
         this.setState({ items_filtered: this.state.items.filter(x => x.name.toLowerCase().includes(this.state.item.toLowerCase())) });
     }
 
-    cart = () => {
+    findTotal = () => {
+        this.setState({total: this.state.cart.reduce((accumulator, item) => {
+            return accumulator + (item.item.price * item.amount)
+        }, 0)})
+    }
+
+    cartShow = () => {
         if (this.props.is_logged_in === false) {
             this.loginPopUp("cart");
         }
         else {
-            this.changePage("Cart");
+            this.setState({show: true});
+            this.findTotal();
         }
+    }
+
+    cartClose = () => {
+        this.setState({show: false});
     }
 
     cartPopUp = () => {
@@ -241,9 +254,9 @@ class Homepage extends React.Component {
 
     render() {
         return (
-            this.state.page === "Cart" ?
-            <Cart changePage={this.changePage} cart={this.state.cart} /> :
             <div className="Homepage bg-dark">
+
+                <Cart show={this.state.show} cart={this.state.cart} cartClose={this.cartClose} total={this.state.total}/>
 
                 <Navbar bg="black" variant="dark" expand="lg">
                     <Container fluid>
@@ -263,7 +276,7 @@ class Homepage extends React.Component {
                                 />
                                 <Button variant="success" className="me-4" onClick={this.findItems}>Search</Button>
                             </Form>
-                            <Button variant="info" className="ms-4 me-1" onClick={this.cart}>
+                            <Button variant="info" className="ms-4 me-1" onClick={this.cartShow}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg>
