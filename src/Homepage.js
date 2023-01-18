@@ -203,6 +203,42 @@ class Homepage extends React.Component {
         this.setState({ cart: this.state.cart });
     }
 
+    remove = (item) => {
+        this.state.cart.map((i) => {
+            if (i.item === item) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: 'Do you want to remove this item from cart?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Yes, remove it!',
+                    color: '#FFFFFF',
+                    background: '#000000'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                        title: 'Removed!',
+                        text: 'This item has been removed.',
+                        icon: 'success',
+                        color: '#FFFFFF',
+                        background: '#000000',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        })
+                        const index = this.state.cart.indexOf(i);
+                        if (index > -1 ) {
+                        this.state.cart.splice(index, 1);
+                        }
+                        this.setState({ cart: this.state.cart });
+                    }
+                    })
+                }
+            return null
+        })
+    }
+
     render() {
         return (
             this.state.page === "Cart" ?
@@ -299,19 +335,22 @@ class Homepage extends React.Component {
                                                     <div className="mt-auto d-flex flex-column">
                                                         <Card.Text>Rp. {item.price}</Card.Text>
                                                         {
-                                                            this.state.cart.find(cart => (cart.item === item)) ?                                                          
-                                                                <InputGroup className="justify-content-center ">
-                                                                <Button variant="primary" onClick={() => { this.substractAmount(item) }}>-</Button>
-                                                                    <InputGroup.Text>
-                                                                    {this.state.cart.map((i) => {
-                                                                        if (i.item === item) {
-                                                                            return i.amount
-                                                                        }
-                                                                        return null
-                                                                    })}
-                                                                    </InputGroup.Text>
-                                                                <Button variant="primary" onClick={() => { this.addAmount(item) }}>+</Button>
-                                                                </InputGroup> 
+                                                            this.state.cart.find(cart => (cart.item === item)) ?   
+                                                                <div className="d-flex">                                                       
+                                                                    <InputGroup>
+                                                                    <Button variant="primary" onClick={() => { this.substractAmount(item) }}>-</Button>
+                                                                        <InputGroup.Text>
+                                                                        {this.state.cart.map((i) => {
+                                                                            if (i.item === item) {
+                                                                                return i.amount
+                                                                            }
+                                                                            return null
+                                                                        })}
+                                                                        </InputGroup.Text>
+                                                                    <Button variant="primary" onClick={() => { this.addAmount(item) }}>+</Button>
+                                                                    </InputGroup>
+                                                                    <Button variant="danger" onClick={() => { this.remove(item) }}>Remove</Button> 
+                                                                </div>
                                                                 : 
                                                             <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
                                                         }                                                        
@@ -332,19 +371,22 @@ class Homepage extends React.Component {
                                                     <div className="mt-auto d-flex flex-column">
                                                         <Card.Text>Rp. {item.price}</Card.Text>
                                                         {
-                                                            this.state.cart.find(cart => (cart.item === item)) ?                                                          
-                                                                <InputGroup className="justify-content-center ">
-                                                                <Button variant="primary" onClick={() => { this.substractAmount(item) }}>-</Button>
-                                                                    <InputGroup.Text>
-                                                                    {this.state.cart.map((i) => {
-                                                                        if (i.item === item) {
-                                                                            return i.amount
-                                                                        }
-                                                                        return null
-                                                                    })}
-                                                                    </InputGroup.Text>
-                                                                <Button variant="primary" onClick={() => { this.addAmount(item) }}>+</Button>
-                                                                </InputGroup> 
+                                                            this.state.cart.find(cart => (cart.item === item)) ?   
+                                                                <div className="d-flex">                                                       
+                                                                    <InputGroup>
+                                                                    <Button variant="primary" onClick={() => { this.substractAmount(item) }}>-</Button>
+                                                                        <InputGroup.Text>
+                                                                        {this.state.cart.map((i) => {
+                                                                            if (i.item === item) {
+                                                                                return i.amount
+                                                                            }
+                                                                            return null
+                                                                        })}
+                                                                        </InputGroup.Text>
+                                                                    <Button variant="primary" onClick={() => { this.addAmount(item) }}>+</Button>
+                                                                    </InputGroup>
+                                                                    <Button variant="danger" onClick={() => { this.remove(item) }}>Remove</Button> 
+                                                                </div>
                                                                 : 
                                                             <Button variant="primary" onClick={() => { this.addToCart(item, 1) }}>Add to Cart</Button>
                                                         }                                                        
