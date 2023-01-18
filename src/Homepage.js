@@ -24,7 +24,7 @@ class Homepage extends React.Component {
             items: [],
             items_filtered: [],
             cart: [],
-            show: false,
+            showCart: false,
             total: 0,
         }
     }
@@ -93,13 +93,13 @@ class Homepage extends React.Component {
             this.loginPopUp("cart");
         }
         else {
-            this.setState({show: true});
+            this.setState({showCart: true});
             this.findTotal();
         }
     }
 
     cartClose = () => {
-        this.setState({show: false});
+        this.setState({showCart: false});
     }
 
     cartPopUp = () => {
@@ -256,7 +256,7 @@ class Homepage extends React.Component {
         return (
             <div className="Homepage bg-dark">
 
-                <Cart show={this.state.show} cart={this.state.cart} cartClose={this.cartClose} total={this.state.total}/>
+                <Cart showCart={this.state.showCart} cart={this.state.cart} cartClose={this.cartClose} total={this.state.total}/>
 
                 <Navbar bg="black" variant="dark" expand="lg">
                     <Container fluid>

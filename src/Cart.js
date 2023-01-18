@@ -3,6 +3,7 @@ import Stack from 'react-bootstrap/Stack';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
+import Modal from 'react-bootstrap/Modal';
 
 
 class Cart extends React.Component {
@@ -10,15 +11,21 @@ class Cart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            showModal: false,
         }
+    }
+
+    editItem = (item) => {
+
     }
 
 
     render() {
         return (
             <div className="Cart">
-                <Offcanvas show={this.props.show} onHide={this.props.cartClose} placement="end" className="bg-black text-white">
+
+
+                <Offcanvas show={this.props.showCart} onHide={this.props.cartClose} placement="end" className="bg-black text-white">
                     <Offcanvas.Header closeButton closeVariant="white">
                         <Offcanvas.Title className="fw-bold fs-5">Cart</Offcanvas.Title>
                     </Offcanvas.Header>
@@ -39,7 +46,7 @@ class Cart extends React.Component {
                                                     <Badge bg="dark">Rp. {item.item.price * item.amount},-</Badge>
                                                 </div>
                                             </div>
-                                            <Button variant="outline-danger" size="sm">&times;</Button> 
+                                            <Button variant="success" size="sm">Edit</Button> 
                                     </Stack>
                             })
                         }
