@@ -45,7 +45,7 @@ class Cart extends React.Component {
                                     <Card.Title>{this.state.item.name}</Card.Title>
                                     <Card.Text>{this.state.item.detail}</Card.Text>
                                     <div className="mt-auto d-flex flex-column">
-                                        <Card.Text>Rp. {this.state.item.price}</Card.Text>
+                                        <Card.Text>{this.props.formatCurrency(this.state.item.price)}</Card.Text>
                                             <div className="d-flex">                                                       
                                                 <InputGroup>
                                                 <Button variant="primary">-</Button>
@@ -82,10 +82,10 @@ class Cart extends React.Component {
                                                 {item.amount > 1 && (
                                                     <span className="text-muted" style={{ fontSize: ".65rem" }}>&times;{item.amount}</span>
                                                 )}
-                                                <div className="text-muted" style={{ fontSize: ".75rem" }}>Rp. {item.item.price},-</div>
+                                                <div className="text-muted" style={{ fontSize: ".75rem" }}>{this.props.formatCurrency(item.item.price)}</div>
                                                 </div>
                                                 <div style={{ fontSize: ".90rem" }}>
-                                                    <Badge bg="dark">Rp. {item.item.price * item.amount},-</Badge>
+                                                    <Badge bg="dark">{this.props.formatCurrency(item.item.price * item.amount)}</Badge>
                                                 </div>
                                             </div>
                                             <Button variant="success" size="sm" onClick={() => { this.openModal(item.item) }}>Edit</Button> 
@@ -101,7 +101,7 @@ class Cart extends React.Component {
                     </div> :
                     <div className="mx-auto fw-bold fs-5 align-items-center mb-4">
                         Total &nbsp;
-                        <Badge bg="primary" className="fw-bold fs-5">Rp. {this.props.total},-</Badge>
+                        <Badge bg="primary" className="fw-bold fs-5">{this.props.formatCurrency(this.props.total)}</Badge>
                     </div>
                     }
                 </Offcanvas>

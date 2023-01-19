@@ -264,7 +264,7 @@ class Homepage extends React.Component {
         return (
             <div className="Homepage bg-dark">
 
-                <Cart showCart={this.state.showCart} cart={this.state.cart} cartClose={this.cartClose} total={this.state.total}/>
+                <Cart showCart={this.state.showCart} cart={this.state.cart} cartClose={this.cartClose} total={this.state.total} formatCurrency={this.formatCurrency}/>
 
                 <Navbar bg="black" variant="dark" expand="lg" sticky="top">
                     <Container fluid>
