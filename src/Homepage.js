@@ -27,6 +27,8 @@ class Homepage extends React.Component {
             cart: [],
             showCart: false,
             total: 0,
+            showModal: false,
+            modalItem: ""
         }
     }
 
@@ -204,6 +206,7 @@ class Homepage extends React.Component {
                             this.state.cart.splice(index, 1);
                           }
                           this.setState({ cart: this.state.cart });
+                          this.closeModal();
                         }
                       })
                 }
@@ -246,11 +249,21 @@ class Homepage extends React.Component {
                         this.state.cart.splice(index, 1);
                         }
                         this.setState({ cart: this.state.cart });
+                        this.closeModal();
                     }
                     })
                 }
             return null
         })
+    }
+
+    openModal = (i) => {
+        this.setState({ showModal: true });
+        this.setState({ modalItem: i })
+    }
+
+    closeModal = () => {
+        this.setState({ showModal: false });
     }
 
     formatCurrency = (price) => {
@@ -264,8 +277,8 @@ class Homepage extends React.Component {
         return (
             <div className="Homepage bg-dark">
 
-                <Cart showCart={this.state.showCart} cart={this.state.cart} cartClose={this.cartClose} total={this.state.total}
-                formatCurrency={this.formatCurrency} addAmount={this.addAmount} substractAmount={this.substractAmount} remove={this.remove} />
+                <Cart showCart={this.state.showCart} cart={this.state.cart} cartClose={this.cartClose} total={this.state.total} showModal={this.state.showModal} modalItem={this.state.modalItem}
+                openModal={this.openModal} closeModal={this.closeModal} formatCurrency={this.formatCurrency} addAmount={this.addAmount} substractAmount={this.substractAmount} remove={this.remove} />
 
                 <Navbar bg="black" variant="dark" expand="lg" sticky="top">
                     <Container fluid>

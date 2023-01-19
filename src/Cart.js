@@ -13,18 +13,8 @@ class Cart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showModal: false,
-            item: {},
+
         }
-    }
-
-    openModal = (i) => {
-        this.setState({ showModal: true });
-        this.setState({ item: i })
-    }
-
-    closeModal = () => {
-        this.setState({ showModal: false });
     }
 
 
@@ -32,7 +22,7 @@ class Cart extends React.Component {
         return (
             <div className="Cart">
 
-                <Modal show={this.state.showModal} size="sm" aria-labelledby="contained-modal-title-vcenter" onHide={() => { this.closeModal() }} centered>
+                <Modal show={this.props.showModal} size="sm" aria-labelledby="contained-modal-title-vcenter" onHide={() => { this.props.closeModal() }} centered>
                     <Modal.Header closeButton className="bg-black text-white" closeVariant="white">
                         <Modal.Title id="contained-modal-title-vcenter" className="bg-black">
                             Edit Item
@@ -40,34 +30,34 @@ class Cart extends React.Component {
                     </Modal.Header>
                     <Modal.Body className="bg-black text-white">
                         <Card bg="black" text="white" className="text-center h-100">
-                            <Card.Img className="rounded" src={this.state.item.image} style={{ height: "125px"}}/>
+                            <Card.Img className="rounded" src={this.props.modalItem.image} style={{ height: "125px"}}/>
                                 <Card.Body className="d-flex flex-column">
-                                    <Card.Title className="fw-bold fs-4">{this.state.item.name}</Card.Title>
+                                    <Card.Title className="fw-bold fs-4">{this.props.modalItem.name}</Card.Title>
                                     <div className="mt-auto d-flex flex-column">
-                                        <Card.Text>{this.state.item.detail}</Card.Text>
+                                        <Card.Text>{this.props.modalItem.detail}</Card.Text>
                                         {this.props.cart.map((i) => {
-                                            if (i.item === this.state.item) {
+                                            if (i.item === this.props.modalItem) {
                                                 return <div>
-                                                    <Card.Text>{this.props.formatCurrency(this.state.item.price)}</Card.Text>
-                                                    <Badge bg="dark" className="fs-5 fw-bold mb-4">{this.props.formatCurrency(this.state.item.price * i.amount)}</Badge>
+                                                    <Card.Text>{this.props.formatCurrency(this.props.modalItem.price)}</Card.Text>
+                                                    <Badge bg="dark" className="fs-5 fw-bold mb-4">{this.props.formatCurrency(this.props.modalItem.price * i.amount)}</Badge>
                                                 </div>
                                             }
                                             return null
                                         })}
                                             <div className="d-flex">                                                       
                                                 <InputGroup>
-                                                <Button variant="primary" onClick={() => { this.props.substractAmount(this.state.item) }}>-</Button>
+                                                <Button variant="primary" onClick={() => { this.props.substractAmount(this.props.modalItem) }}>-</Button>
                                                     <InputGroup.Text>
                                                     {this.props.cart.map((i) => {
-                                                        if (i.item === this.state.item) {
+                                                        if (i.item === this.props.modalItem) {
                                                             return i.amount
                                                         }
                                                         return null
                                                     })}
                                                     </InputGroup.Text>
-                                                <Button variant="primary" onClick={() => { this.props.addAmount(this.state.item) }}>+</Button>
+                                                <Button variant="primary" onClick={() => { this.props.addAmount(this.props.modalItem) }}>+</Button>
                                                 </InputGroup>
-                                                <Button variant="danger" onClick={() => { this.props.remove(this.state.item) }}>Remove</Button> 
+                                                <Button variant="danger" onClick={() => { this.props.remove(this.props.modalItem) }}>Remove</Button> 
                                             </div>                                               
                                     </div>
                                 </Card.Body>
@@ -96,7 +86,7 @@ class Cart extends React.Component {
                                                     <Badge bg="dark">{this.props.formatCurrency(item.item.price * item.amount)}</Badge>
                                                 </div>
                                             </div>
-                                            <Button variant="success" size="sm" onClick={() => { this.openModal(item.item) }}>Edit</Button> 
+                                            <Button variant="success" size="sm" onClick={() => { this.props.openModal(item.item) }}>Edit</Button> 
                                     </Stack>
                             })
                         }
