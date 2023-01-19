@@ -88,18 +88,24 @@ class Cart extends React.Component {
                                             </div>
                                             <Button variant="success" size="sm" onClick={() => { this.props.openModal(item.item) }}>Edit</Button> 
                                     </Stack>
-                            })
+                            })                        
+                        }
+                        {
+                            this.props.cart == "" ?
+                            null :
+                            <div className="d-flex float-end text-decoration-underline">
+                                <Badge className="fw-bold fs-5" bg="dark">Total: {this.props.formatCurrency(this.props.total)}</Badge>
+                            </div>
                         }
                     </Offcanvas.Body>
                     {
                     //eslint-disable-next-line
                     this.props.cart == "" ?
-                    <div className="mx-auto align-items-center mb-4">
-                        <Badge bg="dark" className="fw-bold fs-5">No Items</Badge>
+                    <div className="align-items-center d-grid">
+                        <Button variant="dark" className="fw-bold fs-5 me-3 ms-3 mb-3 mt-3" disabled>No Items</Button>
                     </div> :
-                    <div className="mx-auto fw-bold fs-5 align-items-center mb-4">
-                        Total &nbsp;
-                        <Badge bg="primary" className="fw-bold fs-5">{this.props.formatCurrency(this.props.total)}</Badge>
+                    <div className="align-items-center d-grid">
+                        <Button className="fw-bold fs-5 me-3 ms-3 mb-3 mt-3">Checkout</Button>
                     </div>
                     }
                 </Offcanvas>
