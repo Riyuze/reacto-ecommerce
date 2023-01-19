@@ -56,7 +56,7 @@ class Cart extends React.Component {
                                         })}
                                             <div className="d-flex">                                                       
                                                 <InputGroup>
-                                                <Button variant="primary">-</Button>
+                                                <Button variant="primary" onClick={() => { this.props.substractAmount(this.state.item) }}>-</Button>
                                                     <InputGroup.Text>
                                                     {this.props.cart.map((i) => {
                                                         if (i.item === this.state.item) {
@@ -65,9 +65,9 @@ class Cart extends React.Component {
                                                         return null
                                                     })}
                                                     </InputGroup.Text>
-                                                <Button variant="primary">+</Button>
+                                                <Button variant="primary" onClick={() => { this.props.addAmount(this.state.item) }}>+</Button>
                                                 </InputGroup>
-                                                <Button variant="danger">Remove</Button> 
+                                                <Button variant="danger" onClick={() => { this.props.remove(this.state.item) }}>Remove</Button> 
                                             </div>                                               
                                     </div>
                                 </Card.Body>
