@@ -174,6 +174,7 @@ class Homepage extends React.Component {
             return null
         })
         this.setState({ cart: this.state.cart });
+        this.findTotal();
     }
 
     substractAmount = (item) => {
@@ -218,6 +219,7 @@ class Homepage extends React.Component {
             return null
         })
         this.setState({ cart: this.state.cart });
+        this.findTotal();
     }
 
     remove = (item) => {
@@ -250,6 +252,7 @@ class Homepage extends React.Component {
                         }
                         this.setState({ cart: this.state.cart });
                         this.closeModal();
+                        this.findTotal();
                     }
                     })
                 }
