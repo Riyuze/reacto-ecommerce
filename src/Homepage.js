@@ -11,6 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Carousel from 'react-bootstrap/Carousel';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Swal from 'sweetalert2';
+import Badge from 'react-bootstrap/Badge';
 
 
 
@@ -346,7 +347,7 @@ class Homepage extends React.Component {
                                                     <Card.Title>{item.name}</Card.Title>
                                                     <Card.Text>{item.detail}</Card.Text>
                                                     <div className="mt-auto d-flex flex-column">
-                                                        <Card.Text>Rp. {item.price}</Card.Text>
+                                                        <Card.Text><h4><Badge bg="dark">Rp. {item.price}</Badge></h4></Card.Text>
                                                         {
                                                             this.state.cart.find(cart => (cart.item === item)) ?   
                                                                 <div className="d-flex">                                                       
@@ -382,7 +383,7 @@ class Homepage extends React.Component {
                                                     <Card.Title>{item.name}</Card.Title>
                                                     <Card.Text>{item.detail}</Card.Text>
                                                     <div className="mt-auto d-flex flex-column">
-                                                        <Card.Text>Rp. {item.price}</Card.Text>
+                                                        <Card.Text><h4><Badge bg="dark">Rp. {item.price}</Badge></h4></Card.Text>
                                                         {
                                                             this.state.cart.find(cart => (cart.item === item)) ?   
                                                                 <div className="d-flex">                                                       
