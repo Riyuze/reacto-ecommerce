@@ -94,6 +94,7 @@ class Cart extends React.Component {
                         }
                     </Offcanvas.Body>
                     {
+                    //eslint-disable-next-line
                     this.props.cart == "" ?
                     <div className="mx-auto fw-bold fs-5 align-items-center mb-4">
                         <Badge bg="dark" className="fw-bold fs-5">No Items Found</Badge>
