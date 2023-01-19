@@ -38,9 +38,11 @@ class Cart extends React.Component {
                                         {this.props.cart.map((i) => {
                                             if (i.item === this.props.modalItem) {
                                                 return <div>
-                                                    <Card.Text>{this.props.formatCurrency(this.props.modalItem.price)}</Card.Text>
-                                                    <Badge bg="dark" className="fs-5 fw-bold mb-4">{this.props.formatCurrency(this.props.modalItem.price * i.amount)}</Badge>
-                                                </div>
+                                                    <Card.Text className="fw-bold">{this.props.formatCurrency(this.props.modalItem.price)}</Card.Text>
+                                                    <div className="d-flex justify-content-center">
+                                                        <Badge bg="dark" className="fs-5 fw-bold mb-4 text-decoration-underline">Subtotal: {this.props.formatCurrency(this.props.modalItem.price * i.amount)}</Badge>
+                                                    </div>
+                                               </div>
                                             }
                                             return null
                                         })}
@@ -91,6 +93,7 @@ class Cart extends React.Component {
                             })                        
                         }
                         {
+                            //eslint-disable-next-line
                             this.props.cart == "" ?
                             null :
                             <div className="d-flex float-end text-decoration-underline">
