@@ -390,7 +390,7 @@ class Homepage extends React.Component {
                                                     <Card.Title>{item.name}</Card.Title>
                                                     <Card.Text>{item.detail}</Card.Text>
                                                     <div className="mt-auto d-flex flex-column">
-                                                        <Card.Text><h4><Badge bg="dark">Rp. {item.price}</Badge></h4></Card.Text>
+                                                        <Card.Text><Badge bg="dark" className="fs-5 fw-bold">{this.formatCurrency(item.price)}</Badge></Card.Text>  
                                                         {
                                                             this.state.cart.find(cart => (cart.item === item)) ?   
                                                                 <div className="d-flex">                                                       
