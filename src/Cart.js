@@ -42,10 +42,18 @@ class Cart extends React.Component {
                         <Card bg="black" text="white" className="text-center h-100">
                             <Card.Img className="rounded" src={this.state.item.image} style={{ height: "125px"}}/>
                                 <Card.Body className="d-flex flex-column">
-                                    <Card.Title>{this.state.item.name}</Card.Title>
-                                    <Card.Text>{this.state.item.detail}</Card.Text>
+                                    <Card.Title className="fw-bold fs-4">{this.state.item.name}</Card.Title>
                                     <div className="mt-auto d-flex flex-column">
-                                        <Card.Text>{this.props.formatCurrency(this.state.item.price)}</Card.Text>
+                                        <Card.Text>{this.state.item.detail}</Card.Text>
+                                        {this.props.cart.map((i) => {
+                                            if (i.item === this.state.item) {
+                                                return <div>
+                                                    <Card.Text>{this.props.formatCurrency(this.state.item.price)}</Card.Text>
+                                                    <Badge bg="dark" className="fs-5 fw-bold mb-4">{this.props.formatCurrency(this.state.item.price * i.amount)}</Badge>
+                                                </div>
+                                            }
+                                            return null
+                                        })}
                                             <div className="d-flex">                                                       
                                                 <InputGroup>
                                                 <Button variant="primary">-</Button>
