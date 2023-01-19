@@ -351,7 +351,7 @@ class Homepage extends React.Component {
                                         <Card bg="black" text="white" className="text-center h-100">
                                             <Card.Img variant="top" src={item.image} style={{ height: "250px"}}/>
                                                 <Card.Body className="d-flex flex-column">
-                                                    <Card.Title>{item.name}</Card.Title>
+                                                    <Card.Title className="fw-bold fs-4">{item.name}</Card.Title>
                                                     <Card.Text>{item.detail}</Card.Text>
                                                     <div className="mt-auto d-flex flex-column">
                                                         <Card.Text><Badge bg="dark" className="fs-5 fw-bold">{this.formatCurrency(item.price)}</Badge></Card.Text>
@@ -387,7 +387,7 @@ class Homepage extends React.Component {
                                         <Card bg="black" text="white" className="text-center h-100">
                                             <Card.Img variant="top" src={item.image} style={{ height: "250px"}}/>
                                                 <Card.Body className="d-flex flex-column">
-                                                    <Card.Title>{item.name}</Card.Title>
+                                                    <Card.Title className="fw-bold fs-4">{item.name}</Card.Title>
                                                     <Card.Text>{item.detail}</Card.Text>
                                                     <div className="mt-auto d-flex flex-column">
                                                         <Card.Text><Badge bg="dark" className="fs-5 fw-bold">{this.formatCurrency(item.price)}</Badge></Card.Text>  

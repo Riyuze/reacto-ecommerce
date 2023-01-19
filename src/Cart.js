@@ -96,8 +96,8 @@ class Cart extends React.Component {
                     {
                     //eslint-disable-next-line
                     this.props.cart == "" ?
-                    <div className="mx-auto fw-bold fs-5 align-items-center mb-4">
-                        <Badge bg="dark" className="fw-bold fs-5">No Items Found</Badge>
+                    <div className="mx-auto align-items-center mb-4">
+                        <Badge bg="dark" className="fw-bold fs-5">No Items</Badge>
                     </div> :
                     <div className="mx-auto fw-bold fs-5 align-items-center mb-4">
                         Total &nbsp;
