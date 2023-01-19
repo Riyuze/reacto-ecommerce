@@ -258,7 +258,7 @@ class Homepage extends React.Component {
 
                 <Cart showCart={this.state.showCart} cart={this.state.cart} cartClose={this.cartClose} total={this.state.total}/>
 
-                <Navbar bg="black" variant="dark" expand="lg">
+                <Navbar bg="black" variant="dark" expand="lg" sticky="top">
                     <Container fluid>
                         <Navbar.Brand className="me-4 ms-2 d-flex">
                             Reacto <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-expand" viewBox="0 0 16 16">
