@@ -92,11 +92,17 @@ class Cart extends React.Component {
                                     </Stack>
                             })
                         }
-                        </Offcanvas.Body>
+                    </Offcanvas.Body>
+                    {
+                    this.props.cart == "" ?
+                    <div className="mx-auto fw-bold fs-5 align-items-center mb-4">
+                        <Badge bg="dark" className="fw-bold fs-5">No Items Found</Badge>
+                    </div> :
                     <div className="mx-auto fw-bold fs-5 align-items-center mb-4">
                         Total &nbsp;
                         <Badge bg="primary" className="fw-bold fs-5">Rp. {this.props.total},-</Badge>
                     </div>
+                    }
                 </Offcanvas>
             </div>
         );
