@@ -67,7 +67,7 @@ class Homepage extends React.Component {
             if (result.isConfirmed) {
                 Toast.fire({
                     icon: 'success',
-                    title: `Signed out successfully`
+                    title: 'Signed out successfully'
                     })
                 this.props.changeLogin(false);
                 }
