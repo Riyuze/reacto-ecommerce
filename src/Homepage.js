@@ -30,6 +30,7 @@ class Homepage extends React.Component {
             total: 0,
             showModal: false,
             modalItem: "",
+            count: 0
         }
     }
 
@@ -141,27 +142,21 @@ class Homepage extends React.Component {
           })
     }
 
+    updateCount = () => {
+        this.setState({count: this.state.cart.reduce((accumulator, item) => {
+            return accumulator + item.amount
+        }, 0)})
+    }
+
     addToCart = (item, amount) => {
         if (this.props.is_logged_in === false) {
             this.loginPopUp("item");
         }
         else {
-            if (this.state.cart.find(cart => (cart.item === item))) {
-                this.setState({
-                    cart: this.state.cart.map((i) => {
-                        if (i.item === item) {
-                            i.amount += amount
-                            return i
-                        }
-                        return null                      
-                    })
-                })
-            }
-            else {
-                this.setState({ cart: this.state.cart.concat({ item, amount }) });
-            }
+            this.setState({ cart: this.state.cart.concat({ item, amount }) });
             this.cartPopUp();
         }
+        this.setState({ count: this.state.count + 1 });
     }
 
     addAmount = (item) => {
@@ -174,6 +169,7 @@ class Homepage extends React.Component {
         })
         this.setState({ cart: this.state.cart });
         this.findTotal();
+        this.updateCount();
     }
 
     substractAmount = (item) => {
@@ -207,6 +203,7 @@ class Homepage extends React.Component {
                           }
                           this.setState({ cart: this.state.cart });
                           this.closeModal();
+                          this.updateCount();
                         }
                       })
                 }
@@ -219,6 +216,7 @@ class Homepage extends React.Component {
         })
         this.setState({ cart: this.state.cart });
         this.findTotal();
+        this.updateCount();
     }
 
     remove = (item) => {
@@ -252,6 +250,7 @@ class Homepage extends React.Component {
                         this.setState({ cart: this.state.cart });
                         this.closeModal();
                         this.findTotal();
+                        this.updateCount();
                     }
                     })
                 }
@@ -301,10 +300,22 @@ class Homepage extends React.Component {
                                 />
                                 <Button variant="success" className="me-4" onClick={this.findItems}>Search</Button>
                             </Form>
-                            <Button variant="info" className="ms-4 me-1" onClick={this.cartShow}>
+                            <Button variant="info" className="ms-4 me-1" onClick={this.cartShow} style={{position: "relative"}}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg>
+                                {this.state.count > 0 && (
+                                    <div className="rounded-circle bg-danger d-flex justify-content-center align-items-center" style={{
+                                        color: "white",
+                                        width: "1rem",
+                                        height: "1rem",
+                                        position: "absolute",
+                                        bottom: 0,
+                                        right: 0,
+                                        transform: "translate(25%, 25%)",
+                                        fontSize: 10
+                                    }}>{this.state.count}</div>
+                                )}
                             </Button>
                             {
                                 this.props.is_logged_in === false ?
