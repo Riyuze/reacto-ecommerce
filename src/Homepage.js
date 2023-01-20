@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React from 'react';
 import Cart from './Cart';
-import Checkout from './Checkout';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -42,10 +41,6 @@ class Homepage extends React.Component {
             })
         })
         runHolder();
-    }
-
-    changePage = (newPage) => {
-        this.setState({ page: newPage })
     }
 
     logout = () => {
@@ -282,12 +277,10 @@ class Homepage extends React.Component {
 
     render() {
         return (
-            this.state.page === "Homepage" ?
-
             <div className="Homepage bg-dark">
 
                 <Cart showCart={this.state.showCart} cart={this.state.cart} cartClose={this.cartClose} total={this.state.total} showModal={this.state.showModal} modalItem={this.state.modalItem}
-                openModal={this.openModal} closeModal={this.closeModal} formatCurrency={this.formatCurrency} addAmount={this.addAmount} substractAmount={this.substractAmount} remove={this.remove} changePage={this.changePage}/>
+                openModal={this.openModal} closeModal={this.closeModal} formatCurrency={this.formatCurrency} addAmount={this.addAmount} substractAmount={this.substractAmount} remove={this.remove}/>
 
                 <Navbar bg="black" variant="dark" expand="lg" sticky="top">
                     <Container fluid>
@@ -453,8 +446,6 @@ class Homepage extends React.Component {
                 </footer>
 
             </div>
-            :
-            <Checkout />
         );
     }
 }

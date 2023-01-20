@@ -108,7 +108,7 @@ class Cart extends React.Component {
                         <Button variant="dark" className="fw-bold fs-5 me-3 ms-3 mb-3 mt-3" disabled>No Items</Button>
                     </div> :
                     <div className="align-items-center d-grid">
-                        <Button className="fw-bold fs-5 me-3 ms-3 mb-3 mt-3" onClick={() => { this.props.changePage("Checkout") }}>Checkout</Button>
+                        <Button className="fw-bold fs-5 me-3 ms-3 mb-3 mt-3">Checkout</Button>
                     </div>
                     }
                 </Offcanvas>
