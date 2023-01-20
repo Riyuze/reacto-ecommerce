@@ -155,8 +155,8 @@ class Homepage extends React.Component {
         else {
             this.setState({ cart: this.state.cart.concat({ item, amount }) });
             this.cartPopUp();
+            this.setState({ count: this.state.count + 1 });
         }
-        this.setState({ count: this.state.count + 1 });
     }
 
     addAmount = (item) => {
