@@ -13,6 +13,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Swal from 'sweetalert2';
 import Badge from 'react-bootstrap/Badge';
+import { run as runHolder } from 'holderjs';
 
 
 
@@ -29,9 +30,10 @@ class Homepage extends React.Component {
             showCart: false,
             total: 0,
             showModal: false,
-            modalItem: ""
+            modalItem: "",
         }
     }
+
 
     componentDidMount() {
         axios.get('https://online.akomate.com/atma/api/products').then(res => {
@@ -39,6 +41,7 @@ class Homepage extends React.Component {
                 items: res.data
             })
         })
+        runHolder();
     }
 
     changePage = (newPage) => {
@@ -325,7 +328,7 @@ class Homepage extends React.Component {
                         <img
                             className="d-block w-100 mx-auto"
                             style={{ maxWidth: "800px", height: "400px"}}
-                            src=""
+                            src="holder.js/800x400?text=First slide&bg=373940"
                             alt="First"
                         />
                         <Carousel.Caption>
@@ -337,7 +340,7 @@ class Homepage extends React.Component {
                         <img
                             className="d-block w-100 mx-auto"
                             style={{ maxWidth: "800px", height: "400px"}}
-                            src=""
+                            src="holder.js/800x400?text=Second slide&bg=373940"
                             alt="Second"
                         />
                         <Carousel.Caption>
@@ -349,7 +352,7 @@ class Homepage extends React.Component {
                         <img
                             className="d-block w-100 mx-auto"
                             style={{ maxWidth: "800px", height: "400px"}}
-                            src=""
+                            src="holder.js/800x400?text=Third slide&bg=373940"
                             alt="Third"
                         />
                         <Carousel.Caption>
