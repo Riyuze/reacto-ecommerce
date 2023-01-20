@@ -1,0 +1,34 @@
+@media only screen and (max-width: 992px) {
+    .search {
+        margin: auto !important;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .search Button {
+        margin: auto !important;
+    }
+
+    .cart {
+        margin: auto !important;
+        width: 100%;
+        margin-bottom: 10px !important;
+    }
+
+    .login {
+        margin: auto !important;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .user {
+        margin: auto !important;
+        width: 50%;
+        margin-right: 10px !important;
+    }
+
+    .logout {
+        margin: auto !important;
+        width: 50%;
+    }
+}

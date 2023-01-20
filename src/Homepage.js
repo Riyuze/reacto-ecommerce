@@ -1,3 +1,4 @@
+import './Homepage.css';
 import axios from 'axios';
 import React from 'react';
 import Cart from './Cart';
@@ -10,6 +11,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Carousel from 'react-bootstrap/Carousel';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 import Swal from 'sweetalert2';
 import Badge from 'react-bootstrap/Badge';
 import { run as runHolder } from 'holderjs';
@@ -289,45 +291,59 @@ class Homepage extends React.Component {
                                 <path fill-rule="evenodd" d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
                             </svg>
                         </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                        <Navbar.Collapse id="responsive-navbar-nav">
-                            <Form className="d-flex w-100 ms-4">
+                        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
+                        <Navbar.Offcanvas
+                            id={`offcanvasNavbar-expand-lg`}
+                            aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
+                            placement="start"
+                            className="bg-black text-white"
+                            >
+                            <Offcanvas.Header closeButton closeVariant="white">
+                                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`} className="me-4 ms-2 d-flex">
+                                    Reacto <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-expand" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
+                                    </svg>
+                                </Offcanvas.Title>
+                            </Offcanvas.Header>
+                            <Offcanvas.Body>
+                            <Form className="search d-flex w-100 ms-4">
                                 <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                                value={this.state.item}
-                                onChange={e => this.setState({ item: e.target.value, items_filtered: [] })}
-                                />
-                                <Button variant="success" className="me-4" onClick={this.findItems}>Search</Button>
-                            </Form>
-                            <Button variant="info" className="ms-4 me-1" onClick={this.cartShow} style={{position: "relative"}}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                                </svg>
-                                {this.state.count > 0 && (
-                                    <div className="rounded-circle bg-danger d-flex justify-content-center align-items-center" style={{
-                                        color: "white",
-                                        width: "1rem",
-                                        height: "1rem",
-                                        position: "absolute",
-                                        bottom: 0,
-                                        right: 0,
-                                        transform: "translate(25%, 25%)",
-                                        fontSize: 10
-                                    }}>{this.state.count}</div>
-                                )}
-                            </Button>
-                            {
-                                this.props.is_logged_in === false ?
-                                <Button variant="primary" className="ms-1 me-2 text-white" onClick={this.login}>Login</Button> :
-                                <div className="d-flex mx-auto">
-                                    <Button variant="outline-light" className="ms-1 me-1" disabled>{this.props.logged_in_user}</Button>
-                                    <Button variant="danger" className="ms-1 me-2 text-white" onClick={this.logout}>Logout</Button>        
-                                </div>                       
-                            }
-                            </Navbar.Collapse>
+                                    type="search"
+                                    placeholder="Search"
+                                    className="me-2"
+                                    aria-label="Search"
+                                    value={this.state.item}
+                                    onChange={e => this.setState({ item: e.target.value, items_filtered: [] })}
+                                    />
+                                    <Button variant="success" className="me-4" onClick={this.findItems}>Search</Button>
+                                </Form>
+                                <Button variant="info" className="cart ms-4 me-1" onClick={this.cartShow} style={{position: "relative"}}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                    </svg>
+                                    {this.state.count > 0 && (
+                                        <div className="rounded-circle bg-danger d-flex justify-content-center align-items-center" style={{
+                                            color: "white",
+                                            width: "1rem",
+                                            height: "1rem",
+                                            position: "absolute",
+                                            bottom: 0,
+                                            right: 0,
+                                            transform: "translate(25%, 25%)",
+                                            fontSize: 10
+                                        }}>{this.state.count}</div>
+                                    )}
+                                </Button>
+                                {
+                                    this.props.is_logged_in === false ?
+                                    <Button variant="primary" className="login ms-1 me-2 text-white" onClick={this.login}>Login</Button> :
+                                    <div className="d-flex mx-auto">
+                                        <Button variant="outline-light" className="user ms-1 me-1" disabled>{this.props.logged_in_user}</Button>
+                                        <Button variant="danger" className="logout ms-1 me-2 text-white" onClick={this.logout}>Logout</Button>        
+                                    </div>                       
+                                }
+                            </Offcanvas.Body>
+                        </Navbar.Offcanvas>
                     </Container>
                 </Navbar>
 
