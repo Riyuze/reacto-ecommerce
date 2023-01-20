@@ -338,7 +338,13 @@ class Homepage extends React.Component {
                                     this.props.is_logged_in === false ?
                                     <Button variant="primary" className="login ms-1 me-2 text-white" onClick={this.login}>Login</Button> :
                                     <div className="d-flex mx-auto">
-                                        <Button variant="outline-light" className="user ms-1 me-1" disabled>{this.props.logged_in_user}</Button>
+                                        <Button variant="outline-light" className="user ms-1 me-1" disabled>
+                                            {
+                                            this.props.logged_in_user === "" ? 
+                                                <div>&nbsp;</div> :
+                                            this.props.logged_in_user
+                                            }
+                                        </Button>
                                         <Button variant="danger" className="logout ms-1 me-2 text-white" onClick={this.logout}>Logout</Button>        
                                     </div>                       
                                 }
