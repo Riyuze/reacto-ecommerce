@@ -275,6 +275,7 @@ class Homepage extends React.Component {
         }).format(price);
     }
 
+
     render() {
         return (
             <div className="Homepage bg-dark">

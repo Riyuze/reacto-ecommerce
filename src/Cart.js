@@ -6,6 +6,7 @@ import Badge from 'react-bootstrap/Badge';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Swal from 'sweetalert2';
 
 
 class Cart extends React.Component {
@@ -15,6 +16,36 @@ class Cart extends React.Component {
         this.state = {
 
         }
+    }
+
+    redirect = () => {
+        window.open("https://github.com/Riyuze/ecommerce-react")
+    }
+
+    checkout = () => {
+        Swal.fire({
+            title: 'Thank you for trying Reacto!',
+            text: "Would you like to see the source code?",
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, take me there!',
+            color: '#FFFFFF',
+            background: '#000000'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: 'Redirected!',
+                text: 'This project was made by Kevin Tandavo.',
+                icon: 'success',
+                confirmButtonColor: '#3085d6',
+                color: '#FFFFFF',
+                background: '#000000'
+                })
+                this.redirect();
+            }
+          })
     }
 
 
@@ -108,7 +139,7 @@ class Cart extends React.Component {
                         <Button variant="dark" className="fw-bold fs-5 me-3 ms-3 mb-3 mt-3" disabled>No Items</Button>
                     </div> :
                     <div className="align-items-center d-grid">
-                        <Button className="fw-bold fs-5 me-3 ms-3 mb-3 mt-3">Checkout</Button>
+                        <Button className="fw-bold fs-5 me-3 ms-3 mb-3 mt-3" onClick={() => { this.checkout() }}>Checkout</Button>
                     </div>
                     }
                 </Offcanvas>
