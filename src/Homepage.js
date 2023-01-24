@@ -77,6 +77,7 @@ class Homepage extends React.Component {
             }
           )
         this.setState({cart: []})
+        this.setState({count: 0})
     }
 
     login = () => {
