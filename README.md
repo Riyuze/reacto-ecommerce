@@ -1,7 +1,28 @@
 # Reacto E-Commerce
 https://riyuze.github.io/ecommerce-react/
 
-A very simple e-commerce website made using ReactJS, this project was made purely using frontend.
+A very simple e-commerce website made using **ReactJS**, this project was made purely using frontend.
+
+## Features
+
+### Login System
+Implemented a login and register system using pure **Javascript** logic. Users are saved in a variable.
+
+### API Calls
+Items for the website were called using **Axios**. Axios documentation can be found here.
+
+https://axios-http.com/docs/intro
+
+### Cart
+Implemented a cart where users are able to add, delete, and edit their items.
+
+### Pop-ups
+Used **SweetAlert** for pop-ups. SweetAlert documentation can be found here.
+
+https://sweetalert2.github.io/
+
+## Preview
+
 
 ## Getting Started with Create React App
 
