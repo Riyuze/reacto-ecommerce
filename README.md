@@ -8,21 +8,24 @@ A very simple e-commerce website made using **ReactJS**, this project was made p
 ### Login System
 Implemented a login and register system using pure **Javascript** logic. Users are saved in a variable.
 
+![Login System](https://github.com/Riyuze/ecommerce-react/blob/main/Login%20System.gif)
+
 ### API Calls
 Items for the website were called using **Axios**. Axios documentation can be found here.
 
 https://axios-http.com/docs/intro
 
+![API Calls](https://github.com/Riyuze/ecommerce-react/blob/main/API%20Calls.gif)
+
 ### Cart
 Implemented a cart where users are able to add, delete, and edit their items.
+
+![Cart](https://github.com/Riyuze/ecommerce-react/blob/main/Cart.gif)
 
 ### Pop-ups
 Used **SweetAlert** for pop-ups. SweetAlert documentation can be found here.
 
 https://sweetalert2.github.io/
-
-## Preview
-
 
 ## Getting Started with Create React App
 
