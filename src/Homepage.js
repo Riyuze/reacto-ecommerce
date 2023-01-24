@@ -72,12 +72,12 @@ class Homepage extends React.Component {
                     icon: 'success',
                     title: 'Signed out successfully'
                     })
-                this.props.changeLogin(false);
+                this.props.changeLogin(false); 
+                this.setState({cart: []});
+                this.setState({count: 0});
                 }
             }
           )
-        this.setState({cart: []})
-        this.setState({count: 0})
     }
 
     login = () => {
