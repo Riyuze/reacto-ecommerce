@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/ecommerce-react/static/js/runtime~main.a7cf928e.js"
   },
   {
-    "revision": "eb6bac89c92c3f2cfe560fb5b5f2652d",
+    "revision": "84ba18a6acfdb932ca766e8434e20194",
     "url": "/ecommerce-react/index.html"
   }
 ];
