@@ -1,7 +1,7 @@
 import React from 'react';
-import Login from "./Login.js"
-import Homepage from "./Homepage.js"
-import Register from "./Register.js"
+import Login from "./components/Login.jsx"
+import Homepage from "./components/Homepage.jsx"
+import Register from "./components/Register.jsx"
 
 
 class App extends React.Component {
