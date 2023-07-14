@@ -6,7 +6,7 @@ A very simple e-commerce website made using **ReactJS**, this project was made p
 ## Features
 
 ### Login System
-Implemented a login and register system using pure **Javascript** logic. Users are saved in a variable.
+Implemented a login and register system using pure **Javascript** logic. Users are saved in localstorage.
 
 ![Login System](https://github.com/Riyuze/ecommerce-react/blob/main/Login%20System.gif)
 
