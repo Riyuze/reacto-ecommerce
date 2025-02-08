@@ -1,5 +1,5 @@
 # Reacto E-Commerce
-https://riyuze.github.io/ecommerce-react/
+[https://riyuze.github.io/ecommerce-react/](https://riyuze.github.io/reacto-ecommerce/)
 
 A very simple e-commerce website made using **ReactJS**, this project was made purely using frontend.
 
